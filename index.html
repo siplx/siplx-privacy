@@ -783,7 +783,8 @@
         <!-- ════ Section 9 ═══════════════════════════════════════════ -->
         <section class="section-block" id="third-party">
             <h2>9. Third-Party Services</h2>
-            <p>SIPLX contains <strong>no analytics, no crash reporting and no advertising</strong>. Nothing about how you use the app is reported to us or to anyone else. The services that are present are listed below, each with what it is used for.</p>
+            <p>SIPLX contains <strong>no analytics, no crash reporting and no advertising</strong>. Nothing about how you use the app is reported to us or to anyone else.</p>
+            <p><strong>AI formatting, described in 9.1, is the only feature in this release that sends anything off your device.</strong> Some libraries are linked into the app for features that are not switched on yet &mdash; sign-in, subscriptions and cloud sync. They are listed below as unavailable because that is what they are: no code path in this release reaches them, and nothing flows through them. If any of them is turned on in a later version, this policy will be updated in the same release.</p>
             <table>
                 <thead>
                     <tr><th>Service Type</th><th>Used?</th><th>Details</th></tr>
@@ -793,9 +794,10 @@
                     <tr><td>Crash Reporting (Crashlytics, Sentry, etc.)</td><td><span class="tag tag-error">&#x2718; No</span></td><td>Not present in dependencies</td></tr>
                     <tr><td>Advertising (AdMob, etc.)</td><td><span class="tag tag-error">&#x2718; No</span></td><td>Not present in dependencies</td></tr>
                     <tr><td>Cloud Storage (Firebase, AWS, etc.)</td><td><span class="tag tag-error">&#x2718; No</span></td><td>Not present in dependencies</td></tr>
-                    <tr><td>Authentication (Google Sign-In)</td><td><span class="tag tag-warn">Optional</span></td><td>Used only if you choose to sign in. Handled by Google Play services; SIPLX never sees your password.</td></tr>
-                    <tr><td>Payment Processing (Google Play Billing)</td><td><span class="tag tag-warn">Optional</span></td><td>Used only if you purchase a subscription. Payment details are handled entirely by Google Play; SIPLX never receives them.</td></tr>
-                    <tr><td>HTTP Client (OkHttp, Retrofit)</td><td><span class="tag tag-warn">Yes</span></td><td>Present, and used for the AI formatting request described in 9.1 and for subscription validation.</td></tr>
+                    <tr><td>Authentication (Google Sign-In)</td><td><span class="tag tag-error">&#x2718; Not available</span></td><td>The library is linked into the app, but there is no way to sign in in this release &mdash; the feature is switched off. No account data is collected.</td></tr>
+                    <tr><td>Payment Processing (Google Play Billing)</td><td><span class="tag tag-error">&#x2718; Not available</span></td><td>The library is linked into the app, but there is nothing to purchase in this release &mdash; the feature is switched off. SIPLX never receives payment details in any case; Google Play handles them.</td></tr>
+                    <tr><td>Cloud Sync</td><td><span class="tag tag-error">&#x2718; Not available</span></td><td>Switched off in this release. Nothing is uploaded, and your snippets stay on your device.</td></tr>
+                    <tr><td>HTTP Client (OkHttp, Retrofit)</td><td><span class="tag tag-warn">Yes</span></td><td>Present, and used for the AI formatting request described in 9.1.</td></tr>
                     <tr><td>AI Provider (OpenRouter, via the SIPLX gateway)</td><td><span class="tag tag-warn">On request</span></td><td>Only when you tap the AI formatting action. See 9.1.</td></tr>
                 </tbody>
             </table>
