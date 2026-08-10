@@ -472,7 +472,7 @@
         <h1 class="header-title">Privacy Policy</h1>
         <p class="header-subtitle">Type less. Say more. &mdash; Your data stays yours.</p>
         <div class="header-meta">
-            <span><strong>Last Updated:</strong> 2026-07-21</span>
+            <span><strong>Last Updated:</strong> 2026-08-10</span>
             <span><strong>Application:</strong> SIPLX v1.0.0</span>
             <span><strong>Package:</strong> <code style="background:rgba(255,255,255,0.12);color:rgba(255,255,255,0.85)">com.siplx.android</code></span>
         </div>
@@ -502,6 +502,7 @@
                 <a href="#import-export">7. Import and Export</a>
                 <a href="#permissions">8. Permissions</a>
                 <a href="#third-party">9. Third-Party Services</a>
+<a href="#section-9-1" class="toc-sub">9.1 AI Formatting</a>
                 <a href="#data-security">10. Data Security</a>
                 <a href="#data-retention">11. Data Retention and Deletion</a>
                 <a href="#children">12. Children's Privacy</a>
@@ -782,7 +783,7 @@
         <!-- ════ Section 9 ═══════════════════════════════════════════ -->
         <section class="section-block" id="third-party">
             <h2>9. Third-Party Services</h2>
-            <p>SIPLX <strong>does not integrate any third-party services</strong> that process user data. Specifically:</p>
+            <p>SIPLX contains <strong>no analytics, no crash reporting and no advertising</strong>. Nothing about how you use the app is reported to us or to anyone else. The services that are present are listed below, each with what it is used for.</p>
             <table>
                 <thead>
                     <tr><th>Service Type</th><th>Used?</th><th>Details</th></tr>
@@ -792,11 +793,31 @@
                     <tr><td>Crash Reporting (Crashlytics, Sentry, etc.)</td><td><span class="tag tag-error">&#x2718; No</span></td><td>Not present in dependencies</td></tr>
                     <tr><td>Advertising (AdMob, etc.)</td><td><span class="tag tag-error">&#x2718; No</span></td><td>Not present in dependencies</td></tr>
                     <tr><td>Cloud Storage (Firebase, AWS, etc.)</td><td><span class="tag tag-error">&#x2718; No</span></td><td>Not present in dependencies</td></tr>
-                    <tr><td>Authentication (Firebase Auth, Auth0, etc.)</td><td><span class="tag tag-error">&#x2718; No</span></td><td>Not present in dependencies</td></tr>
-                    <tr><td>HTTP Client (OkHttp, Retrofit, Ktor)</td><td><span class="tag tag-error">&#x2718; No</span></td><td>Not present in dependencies</td></tr>
-                    <tr><td>Payment Processing (Google Pay, Stripe)</td><td><span class="tag tag-error">&#x2718; No</span></td><td>Not implemented yet</td></tr>
+                    <tr><td>Authentication (Google Sign-In)</td><td><span class="tag tag-warn">Optional</span></td><td>Used only if you choose to sign in. Handled by Google Play services; SIPLX never sees your password.</td></tr>
+                    <tr><td>Payment Processing (Google Play Billing)</td><td><span class="tag tag-warn">Optional</span></td><td>Used only if you purchase a subscription. Payment details are handled entirely by Google Play; SIPLX never receives them.</td></tr>
+                    <tr><td>HTTP Client (OkHttp, Retrofit)</td><td><span class="tag tag-warn">Yes</span></td><td>Present, and used for the AI formatting request described in 9.1 and for subscription validation.</td></tr>
+                    <tr><td>AI Provider (OpenRouter, via the SIPLX gateway)</td><td><span class="tag tag-warn">On request</span></td><td>Only when you tap the AI formatting action. See 9.1.</td></tr>
                 </tbody>
             </table>
+
+            <h3 id="section-9-1">9.1 AI Formatting</h3>
+            <p><strong>Everything that makes SIPLX work happens on your device.</strong> Recognising a trigger as you type, deciding when to expand it, and storing your snippets are all local operations. No part of your typing is transmitted for those.</p>
+            <p><strong>AI formatting is the single exception</strong>, and it never happens on its own. It runs only when you tap the AI formatting action on a snippet you have chosen. At that moment, and only then, the content of that snippet is sent for processing.</p>
+            <p>Where it goes:</p>
+            <table>
+                <thead>
+                    <tr><th>Step</th><th>What happens</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>1. Your device</td><td>You tap the AI formatting action. The selected snippet content is sent over HTTPS.</td></tr>
+                    <tr><td>2. SIPLX AI Gateway</td><td>A Cloudflare Worker operated by SIPLX. It attaches the API credential &mdash; which is held in Cloudflare Secrets and never ships inside the app &mdash; and forwards the request.</td></tr>
+                    <tr><td>3. OpenRouter</td><td>The AI provider that performs the formatting. The result travels back the same way.</td></tr>
+                </tbody>
+            </table>
+            <p><strong>We do not retain it.</strong> The gateway holds the request only for as long as it takes to forward it and return the result. Nothing is written to a database, a log of message content, or any other store. Once the response has been returned, the content is gone from our side.</p>
+            <p><strong>Rate limiting.</strong> To prevent abuse, the gateway briefly processes the IP address the request arrives from. It is used for that purpose alone &mdash; it is not stored alongside your content, not used to build a profile, and not used to identify you.</p>
+            <p><strong>OpenRouter's own handling.</strong> Once a request reaches OpenRouter it is subject to OpenRouter's terms, including any policy on whether request content may be used for model training. For that, see <a href="https://openrouter.ai/docs/features/privacy-and-logging" target="_blank" rel="noopener">OpenRouter's data policy</a>.</p>
+            <p>If you never tap the AI formatting action, none of this applies to you: no snippet content leaves your device.</p>
         </section>
 
         <!-- ════ Section 10 ══════════════════════════════════════════ -->
@@ -1015,7 +1036,7 @@
 <footer class="footer">
     <div class="container">
         <p>SIPLX &mdash; Type less. Say more.</p>
-        <p>Last Updated: 2026-07-21 &middot; Version 1.0.0</p>
+        <p>Last Updated: 2026-08-10 &middot; Version 1.1.0</p>
         <p>Contact: <a href="mailto:privacy@siplx.app">privacy@siplx.app</a></p>
     </div>
 </footer>
