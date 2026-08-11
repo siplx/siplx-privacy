@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Delete your SIPLX account</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #1c1c1e;
+    --muted: #6b6b70;
+    --line: #e3e3e6;
+    --accent: #1f6feb;
+    --danger: #b3261e;
+    --danger-bg: #fdf3f2;
+    --keep-bg: #f4f7f4;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #16171a; --fg: #e9e9ec; --muted: #9a9aa1; --line: #2c2d32;
+      --accent: #6ea8fe; --danger: #f2a49c; --danger-bg: #2a1b1a; --keep-bg: #1b231c;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 2rem 1.25rem 5rem;
+    background: var(--bg); color: var(--fg);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  main { max-width: 44rem; margin: 0 auto; }
+  h1 { font-size: 1.6rem; line-height: 1.25; margin: 0 0 .35rem; }
+  h2 { font-size: 1.05rem; margin: 2.2rem 0 .6rem; }
+  .sub { color: var(--muted); margin: 0 0 2rem; }
+  .cols { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+  @media (min-width: 40rem) { .cols { grid-template-columns: 1fr 1fr; } }
+  .card { border: 1px solid var(--line); border-radius: 10px; padding: 1rem 1.1rem; }
+  .card.gone { background: var(--danger-bg); }
+  .card.kept { background: var(--keep-bg); }
+  .card h3 { margin: 0 0 .5rem; font-size: .95rem; letter-spacing: .01em; }
+  ul { margin: .4rem 0 0; padding-left: 1.15rem; }
+  li { margin: .3rem 0; }
+  .note { border-left: 3px solid var(--accent); padding: .1rem 0 .1rem .9rem; margin: 1.4rem 0; color: var(--muted); }
+  label { display: block; margin: 1rem 0 .3rem; font-weight: 600; font-size: .92rem; }
+  input[type=email], input[type=password] {
+    width: 100%; padding: .65rem .7rem; font-size: 1rem;
+    border: 1px solid var(--line); border-radius: 8px;
+    background: var(--bg); color: var(--fg);
+  }
+  .check { display: flex; gap: .6rem; align-items: flex-start; margin: 1.2rem 0; }
+  .check input { margin-top: .28rem; }
+  .check span { font-size: .93rem; color: var(--muted); }
+  button {
+    font: inherit; font-weight: 600; padding: .7rem 1.1rem;
+    border-radius: 8px; border: 1px solid var(--line);
+    background: var(--bg); color: var(--fg); cursor: pointer;
+  }
+  button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  button.destructive { background: var(--danger); border-color: var(--danger); color: #fff; }
+  button[disabled] { opacity: .55; cursor: not-allowed; }
+  .row { display: flex; gap: .6rem; flex-wrap: wrap; margin-top: 1.2rem; }
+  #outcome { margin-top: 1.6rem; }
+  .hidden { display: none; }
+  .msg { padding: .8rem 1rem; border-radius: 8px; border: 1px solid var(--line); margin-top: 1rem; }
+  .msg.err { border-color: var(--danger); color: var(--danger); }
+  table { border-collapse: collapse; width: 100%; margin-top: .6rem; font-size: .93rem; }
+  th, td { text-align: left; padding: .45rem .5rem; border-bottom: 1px solid var(--line); }
+  footer { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .88rem; }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<main>
+
+  <h1>Delete your SIPLX account</h1>
+  <p class="sub">This removes your account and its contents straight away. It cannot be undone.</p>
+
+  <div class="cols">
+    <div class="card gone">
+      <h3>Deleted immediately</h3>
+      <ul>
+        <li>Your email address, display name and profile picture</li>
+        <li>Your password, and any link to a Google account</li>
+        <li>Your snippets and their text</li>
+        <li>Your trigger phrases and folders</li>
+        <li>Everything synced between your devices</li>
+        <li>Your membership of every team</li>
+        <li>All active sign-ins, on every device</li>
+      </ul>
+    </div>
+    <div class="card kept">
+      <h3>Kept</h3>
+      <ul>
+        <li><strong>Snippets you chose to leave with a team.</strong> They stay
+            in that team and remain usable by its members.</li>
+        <li><strong>Teams you own</strong>, which pass to another member —
+            see below.</li>
+        <li><strong>One anonymised record.</strong> Your row in our database
+            survives with everything identifying stripped out: no email, no
+            name, no password.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note">
+    <p><strong>Why one record stays.</strong> Two reasons, both practical. Content
+    that other people still use — snippets you left with a team — has to belong
+    to something in the database, and it is attached to that empty record rather
+    than to you. And because the address is not released immediately, nobody
+    else can register it the moment you leave and inherit anything that still
+    points at it. The record holds no personal information and cannot be signed
+    in to.</p>
+  </div>
+
+  <h2>If you own a team</h2>
+  <p>Ownership moves to someone else so the team keeps working:</p>
+  <ol>
+    <li>The member you nominated as successor, if you named one and they are still in the team.</li>
+    <li>Otherwise, whoever joined earliest.</li>
+    <li>If you are the only member left, the team is dissolved and its snippets are deleted with it.</li>
+  </ol>
+  <p>The next step shows you exactly who each of your teams will go to, before anything happens.</p>
+
+  <h2>Leaving snippets with a team</h2>
+  <p>By default, snippets you added to a team stay there. <strong>Leaving them
+  grants that team continued use of them</strong> — that is a permission you are
+  giving, not just data we are keeping. If you would rather take them with you,
+  tick the box below and they are deleted along with everything else. Any images
+  attached to a snippet always follow the snippet itself.</p>
+
+  <h2>Continue</h2>
+  <p>Sign in to confirm this is your account. We ask for your password again even
+  though you may already be signed in on this device.</p>
+
+  <form id="form" autocomplete="off">
+    <label for="email">Email address</label>
+    <input id="email" type="email" required autocomplete="username">
+
+    <label for="password">Password</label>
+    <input id="password" type="password" required autocomplete="current-password">
+
+    <div class="check">
+      <input id="deleteTeamContent" type="checkbox">
+      <span>Also delete the snippets I left with my teams. Leave this unticked
+        to let those teams keep using them.</span>
+    </div>
+
+    <div class="row">
+      <button id="previewBtn" class="primary" type="submit">Show me what will happen</button>
+    </div>
+  </form>
+
+  <div id="outcome" class="hidden">
+    <h2>What will happen</h2>
+    <div id="outcomeBody"></div>
+    <div class="row">
+      <button id="confirmBtn" class="destructive" type="button">Delete my account permanently</button>
+      <button id="cancelBtn" type="button">Cancel</button>
+    </div>
+  </div>
+
+  <div id="message"></div>
+
+  <h2>Signed in with Google?</h2>
+  <p>Accounts created through Google have no password to re-enter here. Delete
+  those from inside the app: <strong>Settings → Account → Delete account</strong>.</p>
+
+  <h2>Never created an account?</h2>
+  <p>If you have only ever used SIPLX without signing in, there is nothing here
+  to delete — your snippets are on your device and never reached us. Uninstalling
+  the app removes them.</p>
+
+  <footer>
+    <p>Questions: <a href="mailto:privacy@siplx.app">privacy@siplx.app</a> ·
+       <a href="../">Privacy policy</a></p>
+  </footer>
+
+</main>
+
+<script>
+  // The page never stores the password or the token. Both live in this closure
+  // for the length of one deletion and are discarded when it finishes.
+  var API = "https://api.siplx.app";
+
+  var form = document.getElementById("form");
+  var outcome = document.getElementById("outcome");
+  var outcomeBody = document.getElementById("outcomeBody");
+  var message = document.getElementById("message");
+  var previewBtn = document.getElementById("previewBtn");
+  var confirmBtn = document.getElementById("confirmBtn");
+  var cancelBtn = document.getElementById("cancelBtn");
+
+  var session = null; // { token, password, deleteTeamContent }
+
+  function say(text, isError) {
+    message.innerHTML = "";
+    var d = document.createElement("div");
+    d.className = "msg" + (isError ? " err" : "");
+    d.textContent = text;
+    message.appendChild(d);
+  }
+
+  function clearSay() { message.innerHTML = ""; }
+
+  function reset() {
+    session = null;
+    outcome.classList.add("hidden");
+    outcomeBody.innerHTML = "";
+    form.classList.remove("hidden");
+    previewBtn.disabled = false;
+    document.getElementById("password").value = "";
+  }
+
+  async function call(path, method, body, token) {
+    var headers = { "Content-Type": "application/json" };
+    if (token) headers["Authorization"] = "Bearer " + token;
+    var res = await fetch(API + path, {
+      method: method,
+      headers: headers,
+      body: JSON.stringify(body)
+    });
+    var payload = null;
+    try { payload = await res.json(); } catch (e) { /* empty body */ }
+    return { ok: res.ok, status: res.status, body: payload };
+  }
+
+  // Messages are written for the person reading them, not copied from the API.
+  function explain(status, payload) {
+    var code = payload && payload.code;
+    if (code === "INVALID_CREDENTIALS" || code === "INVALID_PASSWORD" || status === 401) {
+      return "That email address and password did not match an account.";
+    }
+    if (code === "NO_PASSWORD_SET") {
+      return "This account signs in with Google, so there is no password to check. Delete it from inside the app: Settings, then Account, then Delete account.";
+    }
+    if (code === "ACCOUNT_ALREADY_DELETED" || status === 410) {
+      return "This account has already been deleted.";
+    }
+    if (status === 0) {
+      return "Could not reach the server. Check your connection and try again.";
+    }
+    return "Something went wrong (" + status + "). Nothing has been deleted. Please try again, or email privacy@siplx.app.";
+  }
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    clearSay();
+    previewBtn.disabled = true;
+
+    var email = document.getElementById("email").value.trim();
+    var password = document.getElementById("password").value;
+    var deleteTeamContent = document.getElementById("deleteTeamContent").checked;
+
+    try {
+      var login = await call("/auth/login", "POST", { email: email, password: password });
+      if (!login.ok) { say(explain(login.status, login.body), true); previewBtn.disabled = false; return; }
+
+      var token = login.body.accessToken;
+      var pre = await call("/auth/account/deletion-preview", "POST", { password: password }, token);
+      if (!pre.ok) { say(explain(pre.status, pre.body), true); previewBtn.disabled = false; return; }
+
+      session = { token: token, password: password, deleteTeamContent: deleteTeamContent };
+      render(pre.body, deleteTeamContent);
+    } catch (err) {
+      say(explain(0, null), true);
+      previewBtn.disabled = false;
+    }
+  });
+
+  function render(p, deleteTeamContent) {
+    var html = "";
+    html += "<p>Account <strong>" + escapeHtml(p.email) + "</strong>.</p>";
+
+    html += "<table><tr><th>Item</th><th>What happens</th></tr>";
+    html += "<tr><td>Personal snippets</td><td>" + p.personalSnippetCount + " deleted</td></tr>";
+    html += "<tr><td>Snippets you added to teams</td><td>" + p.teamSnippetCount + " " +
+            (deleteTeamContent ? "deleted" : "left with the team, which may keep using them") + "</td></tr>";
+    html += "<tr><td>Your account details</td><td>deleted</td></tr>";
+    html += "</table>";
+
+    if (p.teams && p.teams.length) {
+      html += "<p style='margin-top:1.2rem'><strong>Teams you own</strong></p><table><tr><th>Team</th><th>What happens</th></tr>";
+      for (var i = 0; i < p.teams.length; i++) {
+        var t = p.teams[i];
+        html += "<tr><td>" + escapeHtml(t.teamName) + "</td><td>" +
+          (t.dissolved
+            ? "dissolved — you are the only member, and its snippets are deleted"
+            : "transferred to " + escapeHtml(t.successorEmail)) +
+          "</td></tr>";
+      }
+      html += "</table>";
+    } else {
+      html += "<p style='margin-top:1.2rem'>You do not own any teams.</p>";
+    }
+
+    html += "<p style='margin-top:1.4rem'><strong>This happens immediately and cannot be undone.</strong></p>";
+
+    outcomeBody.innerHTML = html;
+    form.classList.add("hidden");
+    outcome.classList.remove("hidden");
+  }
+
+  confirmBtn.addEventListener("click", async function () {
+    if (!session) return;
+    clearSay();
+    confirmBtn.disabled = true;
+    try {
+      var res = await call("/auth/account", "DELETE", {
+        password: session.password,
+        deleteTeamContent: session.deleteTeamContent
+      }, session.token);
+
+      if (!res.ok) { say(explain(res.status, res.body), true); confirmBtn.disabled = false; return; }
+
+      var r = res.body || {};
+      var parts = ["Your account has been deleted."];
+      if (r.teamsTransferred) parts.push(r.teamsTransferred + " team(s) transferred to another member.");
+      if (r.teamsDissolved) parts.push(r.teamsDissolved + " team(s) dissolved.");
+      if (!session.deleteTeamContent) parts.push("Snippets you left with your teams remain available to them.");
+
+      outcome.classList.add("hidden");
+      form.classList.add("hidden");
+      say(parts.join(" "), false);
+      session = null;
+    } catch (err) {
+      say(explain(0, null), true);
+      confirmBtn.disabled = false;
+    }
+  });
+
+  cancelBtn.addEventListener("click", function () {
+    clearSay();
+    reset();
+    say("Nothing was deleted.", false);
+  });
+
+  function escapeHtml(s) {
+    return String(s == null ? "" : s)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+  }
+</script>
+</body>
+</html>
