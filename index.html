@@ -64,7 +64,7 @@
 
 <h1>SIPLX Privacy Policy</h1>
 <p class="lede">What SIPLX stores, what leaves your device, and how to remove it.</p>
-<p class="updated">Last Updated: 12 August 2026</p>
+<p class="updated">Last Updated: 25 August 2026</p>
 
 <p>
   SIPLX is a text-expansion app. Snippets you write are saved on your device and
@@ -82,7 +82,74 @@
   </p>
 </div>
 
-<h2>1. What we collect</h2>
+<h2>1. The Accessibility Service</h2>
+
+<p>
+  Expanding a trigger into full text in another app is not something an ordinary
+  Android app can do. To type for you, SIPLX uses an
+  <strong>Accessibility Service</strong> — a permission Android grants only when
+  you turn it on yourself, in your phone's system settings. It is off until you
+  do, and turning it off again stops expansion immediately and does nothing else
+  to your data.
+</p>
+
+<h3>What it can see</h3>
+<p>
+  While it is on, the service receives events from the text field you are
+  currently typing in: that the text changed, that a field gained focus, and
+  that you moved to a different screen. To decide whether what you just typed is
+  one of your triggers, it reads the text immediately before your cursor.
+</p>
+
+<h3>What it does with what it sees</h3>
+<div class="note">
+  <p>
+    <strong>Nothing you type in other apps is stored, logged, or sent
+    anywhere.</strong> The comparison happens on your device, in memory, against
+    your own snippet list. Text that does not match a trigger is discarded as
+    soon as the check finishes. We never receive it, and it is not written to
+    the app's database, to a file, or to any server — including when cloud sync
+    is on. Cloud sync uploads snippets you wrote in SIPLX, never text you typed
+    elsewhere.
+  </p>
+</div>
+
+<h3>Where it deliberately does not look</h3>
+<ul>
+  <li>
+    <strong>Password and other sensitive fields are skipped.</strong> When the
+    field you are typing in is marked by the app as a password, PIN, or
+    similarly sensitive input, SIPLX drops the event without reading it and does
+    not expand.
+  </li>
+  <li>
+    <strong>SIPLX does not read your keystrokes.</strong> The service does not
+    request the key-event capability that would let it observe individual key
+    presses. It works only from the text-changed events Android sends for the
+    field in front of you.
+  </li>
+  <li>
+    <strong>SIPLX cannot control your device.</strong> It does not request
+    gesture injection; it cannot tap, swipe, or navigate on your behalf. The
+    only change it makes is replacing a trigger you typed with your own snippet
+    text.
+  </li>
+  <li>
+    <strong>It does not read screens you are not typing in.</strong> The service
+    acts on the focused editable field, and takes no interest in the rest of
+    what is on screen.
+  </li>
+</ul>
+
+<h3>Turning it off</h3>
+<p>
+  Open your phone's <em>Settings → Accessibility → SIPLX</em> and switch it off,
+  or use the shortcut in SIPLX's own Settings screen. Expansion stops; your
+  snippets, folders and account are untouched. You can also pause expansion
+  temporarily from the SIPLX notification without revoking the permission.
+</p>
+
+<h2>2. What we collect</h2>
 
 <h3>Account information</h3>
 <p>Collected only if you create an account.</p>
@@ -128,7 +195,7 @@
   <li>We do not record what you type in other apps. Expansion happens on your device.</li>
 </ul>
 
-<h2>2. Where your data is stored</h2>
+<h2>3. Where your data is stored</h2>
 <p>
   Cloud sync data is stored in a PostgreSQL database hosted by
   <strong>Neon</strong>, in Amazon Web Services' <strong>Asia Pacific
@@ -139,7 +206,7 @@
   or shared with anyone for their own purposes.
 </p>
 
-<h2>3. AI formatting</h2>
+<h2>4. AI formatting</h2>
 <p>
   When you tap the AI formatting button on a snippet, the text of
   <em>that snippet</em> is sent to our AI gateway and forwarded to a
@@ -153,7 +220,41 @@
   provider.
 </p>
 
-<h2>4. Team workspaces</h2>
+<h2>5. Purchases, Ink and AI usage</h2>
+<p>
+  Payment itself is handled entirely by Google Play. <strong>We never see or
+  receive your card number, bank details or billing address.</strong> Google
+  tells us only that a purchase happened.
+</p>
+<p>To make a subscription or an Ink top-up work, our server stores:</p>
+<table>
+  <tr><th>The purchase token Google issues</th><td>So we can ask Google whether the purchase is genuine and still valid, and so a refund can be applied</td></tr>
+  <tr><th>Which product and plan you bought</th><td>Pro or Team, monthly or yearly, and the number of seats for a team</td></tr>
+  <tr><th>When it expires</th><td>To know whether your subscription is active</td></tr>
+  <tr><th>Your Ink balance</th><td>Ink is the credit that pays for AI use</td></tr>
+  <tr><th>A line per Ink movement</th><td>The amount added or spent, the balance afterwards, the reason, and — for AI use — how many tokens the request and the reply came to, and which model answered</td></tr>
+  <tr><th>How many free AI uses you have had this week</th><td>A count only, reset every Monday</td></tr>
+</table>
+<div class="note">
+  <p>
+    The Ink record counts your AI usage; it does not keep what you sent.
+    The text of a snippet is not written to that record — see
+    <strong>AI formatting</strong> above.
+  </p>
+</div>
+<p>
+  When you delete your account, the identifying details on it — your email
+  address, your name, your password — are removed <strong>immediately</strong>.
+  The purchase and Ink records above go with the account when the record itself
+  is removed, thirty days later. They contain no snippet text at any point.
+</p>
+<p>
+  Google keeps its own record of your purchase under
+  <a href="https://policies.google.com/privacy">Google's privacy policy</a>, and
+  refunds are requested through Google Play rather than through us.
+</p>
+
+<h2>6. Team workspaces</h2>
 <p>
   If you join or create a team, content you place in that team's workspace is
   shared with the other members of that team.
@@ -181,7 +282,7 @@
   </li>
 </ul>
 
-<h2>5. Deleting your data</h2>
+<h2>7. Deleting your data</h2>
 
 <h3>Individual snippets</h3>
 <p>
@@ -222,21 +323,21 @@
   policy when that is in place.
 </p>
 
-<h2>6. How long we keep things</h2>
+<h2>8. How long we keep things</h2>
 <ul>
   <li>Cloud sync data is kept while your account exists, so it can be delivered to your devices.</li>
   <li>Deleting a snippet or your account removes that content as described above.</li>
   <li>Sign-in sessions expire on their own and are revoked when you sign out or delete your account.</li>
 </ul>
 
-<h2>7. Children</h2>
+<h2>9. Children</h2>
 <p>
   SIPLX is not directed at children under 13, and we do not knowingly collect
   personal information from them. If you believe a child has given us personal
   information, contact us and we will remove it.
 </p>
 
-<h2>8. Your choices</h2>
+<h2>10. Your choices</h2>
 <ul>
   <li><strong>Use SIPLX without an account.</strong> Nothing is uploaded.</li>
   <li><strong>Sign in but leave cloud sync off.</strong> Your snippets stay on your device.</li>
@@ -245,14 +346,14 @@
   <li><strong>Delete your account</strong> from the app or from the web page linked above.</li>
 </ul>
 
-<h2>9. Changes to this policy</h2>
+<h2>11. Changes to this policy</h2>
 <p>
   If we change what SIPLX collects or how it is used, we will update this page
   and change the "Last Updated" date at the top. Material changes to how we
   handle data that has already been collected will be announced in the app.
 </p>
 
-<h2>10. Contact</h2>
+<h2>12. Contact</h2>
 <p>
   Questions about this policy, or requests about your data, can be sent to
   <a href="mailto:siplx.app@gmail.com">siplx.app@gmail.com</a>.
