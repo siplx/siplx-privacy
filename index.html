@@ -64,7 +64,7 @@
 
 <h1>SIPLX Privacy Policy</h1>
 <p class="lede">What SIPLX stores, what leaves your device, and how to remove it.</p>
-<p class="updated">Last Updated: 3 September 2026</p>
+<p class="updated">Last Updated: 8 September 2026</p>
 
 <p>
   SIPLX is a text-expansion app. Snippets you write are saved on your device and
@@ -187,6 +187,47 @@
   </p>
 </div>
 
+<h3>Device wake-up token — collected only when cloud sync is on</h3>
+<p>
+  So that a change you make on one device shows up on your others without you
+  waiting for the app to check, each signed-in device is registered with us to
+  receive a wake-up signal.
+</p>
+<ul>
+  <li>
+    <strong>On Android</strong> the signal is delivered by <strong>Firebase
+    Cloud Messaging</strong>, a Google service. Your phone asks Google for a
+    registration token — an identifier for that one installation of the app —
+    and we store it against your account so we know where to send the signal.
+    The token is passed to Google each time we ask them to wake that device.
+  </li>
+  <li>
+    <strong>On Windows</strong> no third party is involved. The app holds an
+    open connection to our own server and the signal arrives down it.
+  </li>
+</ul>
+
+<div class="note">
+  <p>
+    <strong>The signal carries no content.</strong> None
+    of your snippet text, trigger phrases, folder names, email address or
+    account name is in it. Google is told that a device should wake up; they are
+    not told what changed, and there is nothing in the message for them to read.
+    Nothing appears on your screen: the app wakes silently and then fetches the
+    change from us over its own encrypted connection.
+  </p>
+</div>
+
+<p>
+  We store the token, which platform it belongs to, and when it was first
+  registered and last updated. Registering the same installation again replaces
+  the stored token rather than adding another. The token is deleted when you
+  delete your account, and it is removed when Google tells us it has stopped
+  working — which is what happens when the app is uninstalled or its data is
+  cleared. Signing out stops this device sending or receiving anything, but does
+  not by itself remove the token from our server.
+</p>
+
 <h3>What we do not collect</h3>
 <ul>
   <li>We do not collect your location.</li>
@@ -202,8 +243,9 @@
   (Singapore)</strong> region. Data is encrypted in transit using HTTPS.
 </p>
 <p>
-  Neon processes this data on our behalf as a hosting provider. It is not sold
-  or shared with anyone for their own purposes.
+  Neon processes this data on our behalf as a hosting provider. Google processes
+  device wake-up tokens on our behalf, as described in section 2. Neither is
+  given your data for their own purposes, and we do not sell it to anyone.
 </p>
 
 <h2>4. AI formatting</h2>
@@ -408,7 +450,7 @@
 </p>
 
 <footer>
-  SIPLX — Privacy Policy — Last Updated 3 September 2026
+  SIPLX — Privacy Policy — Last Updated 8 September 2026
 </footer>
 
 </body>
