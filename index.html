@@ -243,23 +243,43 @@
   (Singapore)</strong> region. Data is encrypted in transit using HTTPS.
 </p>
 <p>
-  Neon processes this data on our behalf as a hosting provider. Google processes
-  device wake-up tokens on our behalf, as described in section 2. Neither is
-  given your data for their own purposes, and we do not sell it to anyone.
+  The server our apps and our website talk to runs on <strong>Render</strong>,
+  in its <strong>Singapore</strong> region. Everything sent to us passes through
+  it: your email address and password when you sign in, the token that renews
+  your session afterwards, and your snippet data when cloud sync is on.
+</p>
+<p>
+  Neon and Render process this data on our behalf as hosting providers. Google
+  processes device wake-up tokens on our behalf, as described in section 2. None
+  of them is given your data for their own purposes, and we do not sell it to
+  anyone.
 </p>
 
 <h2>4. AI formatting</h2>
 <p>
   When you tap the AI formatting button on a snippet, the text of
-  <em>that snippet</em> is sent to our AI gateway and forwarded to a
-  third-party language-model provider (OpenRouter) to produce the formatted
-  result. This happens only when you explicitly ask for it — never
+  <em>that snippet</em> is sent to our own server, which forwards it through
+  <strong>OpenRouter</strong> — an AI gateway — to the language model that
+  produces the formatted result. We choose that model on the server rather than
+  in the app; today it is <strong>DeepSeek V3.2</strong>, and it may change. So
+  the text of that one snippet is seen by OpenRouter and by the provider of the
+  model in use. This happens only when you explicitly ask for it — never
   automatically, and never for snippets you have not chosen.
 </p>
+<div class="note">
+  <p>
+    <strong>Only the snippet's text is sent.</strong> Attachments — images, PDFs
+    and any other file you attach — are never sent to the AI.
+  </p>
+</div>
 <p>
-  The snippet text is used to generate your result and is not stored by us as
-  part of this feature. Your account credentials are not sent to the model
-  provider.
+  Our server does not log or store the text you send, or the result that comes
+  back from a successful call. When the AI provider answers with an error
+  instead, the first 400 characters of its response are recorded in our
+  diagnostic log so the failure can be traced. Beyond that it records only
+  metadata about the call: its size, whether it succeeded, and the usage counted
+  in section 5. Your account credentials are not sent to OpenRouter or to the
+  provider of the model.
 </p>
 
 <h2>5. Purchases, Ink and AI usage</h2>
@@ -420,14 +440,89 @@
       re-registered in the meantime, then removed.</li>
 </ul>
 
-<h2>9. Children</h2>
+<h2>9. The SIPLX website (siplx.com)</h2>
+<p>
+  The sections above are about the SIPLX apps. The website is a separate thing
+  and a much smaller one: it describes the product, and it lets you sign in to
+  the account you already have. Your snippets are never on it.
+</p>
+
+<h3>What the site keeps in your browser</h3>
+<p>
+  <strong>The site sets no cookies</strong>, so there is no cookie banner to
+  dismiss. Three values are kept in your browser's own storage:
+</p>
+<table>
+  <tr>
+    <th><code>siplx_refresh_token</code></th>
+    <td>Kept while you are signed in, so that reloading the page does not sign
+        you out. It is sent to our server to renew your session, and it is
+        removed when you sign out. It has no expiry of its own — signing out is
+        what clears it.</td>
+  </tr>
+  <tr>
+    <th><code>siplx_user_cache</code></th>
+    <td>The account details our server returns when you sign in — your email
+        address and display name among them — so the page can show who is signed
+        in without asking again. Cleared when you sign out, and when you close
+        the tab.</td>
+  </tr>
+  <tr>
+    <th><code>siplx-lang</code></th>
+    <td>The interface language you picked. It is not tied to your account, and it
+        stays until you clear your browser data. We do not send it to our own
+        server, but it is passed to Google as the language for the sign-in
+        button, at the moment you open the sign-in dialog.</td>
+  </tr>
+</table>
+
+<h3>Signing in on the website</h3>
+<p>
+  Creating an account sends your email address, your password and your display
+  name to our server; signing in sends your email address and password. If you
+  are already signed in, opening the site quietly asks our server to renew your
+  session, and asks it whether your subscription is still active — nothing else
+  is sent. Choosing <em>Continue with Google</em> loads
+  Google's sign-in code, and only at the moment you open the sign-in dialog, not
+  on an ordinary visit; Google sees that request. We receive an identifier for
+  your Google account, never your Google password.
+</p>
+
+<h3>Google Fonts</h3>
+<p>
+  The main site loads its typefaces from <strong>Google Fonts</strong> as the
+  page opens, so your IP address and basic browser details reach Google — before
+  you sign in, and whether or not you ever do. This policy page and the refund
+  page carry no such request: they use whatever fonts your device already has,
+  and load nothing from Google. Google explains what it does with that in
+  <a href="https://policies.google.com/privacy">its own privacy policy</a>.
+</p>
+
+<h3>What the site does not do</h3>
+<ul>
+  <li>
+    <strong>No analytics and no advertising trackers.</strong> There is no
+    Google Analytics, no tag manager, and no product-analytics or
+    session-recording tool of any kind on this site.
+  </li>
+  <li>
+    <strong>Nothing you type on the site is sent anywhere except to sign you
+    in.</strong> The site has no snippet editor and no AI feature.
+  </li>
+  <li>
+    The download buttons take you to Google Play or to GitHub when you click
+    them. Those are the only other places the site sends you.
+  </li>
+</ul>
+
+<h2>10. Children</h2>
 <p>
   SIPLX is not directed at children under 13, and we do not knowingly collect
   personal information from them. If you believe a child has given us personal
   information, contact us and we will remove it.
 </p>
 
-<h2>10. Your choices</h2>
+<h2>11. Your choices</h2>
 <ul>
   <li><strong>Use SIPLX without an account.</strong> Nothing is uploaded.</li>
   <li><strong>Sign in but leave cloud sync off.</strong> Your snippets stay on your device.</li>
@@ -436,14 +531,14 @@
   <li><strong>Delete your account</strong> from the app or from the web page linked above.</li>
 </ul>
 
-<h2>11. Changes to this policy</h2>
+<h2>12. Changes to this policy</h2>
 <p>
   If we change what SIPLX collects or how it is used, we will update this page
   and change the "Last Updated" date at the top. Material changes to how we
   handle data that has already been collected will be announced in the app.
 </p>
 
-<h2>12. Contact</h2>
+<h2>13. Contact</h2>
 <p>
   Questions about this policy, or requests about your data, can be sent to
   <a href="mailto:siplx.app@gmail.com">siplx.app@gmail.com</a>.
