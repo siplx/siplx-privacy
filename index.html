@@ -64,7 +64,7 @@
 
 <h1>SIPLX Privacy Policy</h1>
 <p class="lede">What SIPLX stores, what leaves your device, and how to remove it.</p>
-<p class="updated">Last Updated: 8 September 2026</p>
+<p class="updated">Last Updated: 15 September 2026</p>
 
 <p>
   SIPLX is a text-expansion app. Snippets you write are saved on your device and
@@ -284,13 +284,21 @@
 
 <h2>5. Purchases, Ink and AI usage</h2>
 <p>
-  Payment itself is handled entirely by Google Play. <strong>We never see or
-  receive your card number, bank details or billing address.</strong> Google
-  tells us only that a purchase happened.
+  There are two ways to pay, and both attach to the same SIPLX account.
+  <strong>Purchases made inside the Android app</strong> — Pro and Team
+  subscriptions and Ink top-ups — are handled entirely by Google Play Billing.
+  <strong>Purchases made on siplx.com by Windows users</strong> — Pro and Team
+  subscriptions — are handled by Lemon Squeezy, LLC, the merchant of record for
+  those sales. <strong>In both cases we never see or receive your card number,
+  bank details or billing address.</strong> Google or Lemon Squeezy tells us
+  only that a purchase happened, and our server then updates the Pro or Team
+  entitlement on the account the purchase belongs to.
 </p>
 <p>To make a subscription or an Ink top-up work, our server stores:</p>
 <table>
   <tr><th>The purchase token Google issues</th><td>So we can ask Google whether the purchase is genuine and still valid, and so a refund can be applied</td></tr>
+  <tr><th>The subscription and customer identifiers Lemon Squeezy issues</th><td>For a website purchase: so we can ask Lemon Squeezy whether the subscription is still active, and so you can open its customer portal from the app or the site</td></tr>
+  <tr><th>Which SIPLX account a website purchase belongs to</th><td>Your account identifier is passed to Lemon Squeezy at checkout and comes back with its notifications, so the subscription lands on the account you were signed in to</td></tr>
   <tr><th>Which product and plan you bought</th><td>Pro or Team, monthly or yearly, and the number of seats for a team</td></tr>
   <tr><th>When it expires</th><td>To know whether your subscription is active</td></tr>
   <tr><th>Your Ink balance</th><td>Ink is the credit that pays for AI use</td></tr>
@@ -311,9 +319,18 @@
   is removed, thirty days later. They contain no snippet text at any point.
 </p>
 <p>
-  Google keeps its own record of your purchase under
+  Google keeps its own record of an Android purchase under
   <a href="https://policies.google.com/privacy">Google's privacy policy</a>, and
-  refunds are requested through Google Play rather than through us.
+  refunds for it are requested through Google Play rather than through us.
+  Lemon Squeezy keeps its own record of a website purchase — including the
+  email address, name, billing address and payment method it collects to take
+  payment, issue invoices and handle tax — under
+  <a href="https://www.lemonsqueezy.com/privacy">Lemon Squeezy's privacy policy</a>;
+  refunds and cancellations for it go through the Lemon Squeezy customer portal
+  or by email to us. Lemon Squeezy sends our server notifications about a
+  subscription (created, paid, cancelled, expired, refunded); we act only on
+  notifications whose signature we have verified, and a repeated notification
+  is not applied twice.
 </p>
 
 <h2>6. Team workspaces</h2>
@@ -545,7 +562,7 @@
 </p>
 
 <footer>
-  SIPLX — Privacy Policy — Last Updated 8 September 2026
+  SIPLX — Privacy Policy — Last Updated 15 September 2026
 </footer>
 
 </body>
