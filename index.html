@@ -64,7 +64,7 @@
 
 <h1>SIPLX Privacy Policy</h1>
 <p class="lede">What SIPLX stores, what leaves your device, and how to remove it.</p>
-<p class="updated">Last Updated: 15 September 2026</p>
+<p class="updated">Last Updated: 18 September 2026</p>
 
 <p>
   SIPLX is a text-expansion app. Snippets you write are saved on your device and
@@ -158,9 +158,22 @@
   <li>Display name</li>
   <li>An account identifier we generate</li>
   <li>
-    Either a password (stored only as a cryptographic hash, never in readable
-    form) or, if you sign in with Google, an identifier Google gives us for your
-    account. We do not receive or store your Google password.
+    How you sign in: an identifier Google or Microsoft gives us for your
+    account, if you use <strong>Continue with Google</strong> or
+    <strong>Continue with Microsoft</strong> &mdash; we never receive or store
+    that account&rsquo;s password &mdash; or, if you sign in with a
+    <strong>one-time code sent to your email</strong>, nothing beyond the
+    email address the code was sent to. New accounts never set a password
+    with us. A small number of older accounts still have a password on file
+    from before September 2026, stored only as a cryptographic hash; that
+    sign-in method has been retired, and those accounts now sign in the same
+    way as any other &mdash; with Google, Microsoft, or an emailed code.
+  </li>
+  <li>
+    If you sign in with Microsoft and your organisation has not confirmed
+    your email address with us, we do not learn or store that address at
+    all: your account is identified only by the anonymous identifier
+    Microsoft gives us for it.
   </li>
 </ul>
 
@@ -226,6 +239,26 @@
   working — which is what happens when the app is uninstalled or its data is
   cleared. Signing out stops this device sending or receiving anything, but does
   not by itself remove the token from our server.
+</p>
+
+<h3>Feedback you send us — collected only if you use it</h3>
+<p>
+  If you answer the in-app &ldquo;How&rsquo;s your experience with
+  SIPLX?&rdquo; prompt, or send feedback from Settings:
+</p>
+<ul>
+  <li>The message you write</li>
+  <li>
+    Which platform you sent it from (Android, Windows or the website) and
+    your app version
+  </li>
+</ul>
+<p>
+  We link it to your account only so we do not ask again on your other
+  devices, and so we can act on it if it names a problem specific to your
+  account. Tapping &ldquo;Rate on Google Play&rdquo; from that prompt opens
+  the Play Store in your browser or the Play app; we do not learn whether you
+  went on to leave a rating there.
 </p>
 
 <h3>What we do not collect</h3>
@@ -418,9 +451,9 @@
 <h3>Your whole account</h3>
 <p>
   Open <strong>Settings → Profile → Delete account</strong> in the app. You will
-  be asked to confirm who you are first — with your password if you registered
-  with an email address, or by signing in with Google again if your account uses
-  Google. This works for both kinds of account.
+  be asked to confirm who you are first, the same way you normally sign in —
+  with Google, with Microsoft, or with a fresh one-time code sent to your
+  email.
 </p>
 <p>You can also delete your account from the web, without installing the app:
   <a href="https://siplx.github.io/siplx-privacy/delete-account/">siplx.github.io/siplx-privacy/delete-account/</a>.
@@ -430,7 +463,7 @@
 <table>
   <tr><th>Your personal snippets, triggers and folders in the cloud</th><td>Deleted</td></tr>
   <tr><th>All active sign-in sessions</th><td>Revoked immediately</td></tr>
-  <tr><th>Your email address, display name and password</th><td>Removed from your account record</td></tr>
+  <tr><th>Your email address, display name and password, if one is on file</th><td>Removed from your account record</td></tr>
   <tr><th>Snippets on your device</th><td>Stay on your device — deleting your account does not erase your phone</td></tr>
   <tr><th>Team content you chose to leave with the team</th><td>Kept for the team, with your identity removed from it</td></tr>
 </table>
@@ -495,14 +528,13 @@
 
 <h3>Signing in on the website</h3>
 <p>
-  Creating an account sends your email address, your password and your display
-  name to our server; signing in sends your email address and password. If you
-  are already signed in, opening the site quietly asks our server to renew your
-  session, and asks it whether your subscription is still active — nothing else
-  is sent. Choosing <em>Continue with Google</em> loads
-  Google's sign-in code, and only at the moment you open the sign-in dialog, not
-  on an ordinary visit; Google sees that request. We receive an identifier for
-  your Google account, never your Google password.
+  The website only offers <em>Continue with Google</em> — there is no email
+  and password form here. Choosing it loads Google's sign-in code, and only
+  at the moment you open the sign-in dialog, not on an ordinary visit; Google
+  sees that request. We receive an identifier for your Google account, never
+  your Google password. If you are already signed in, opening the site
+  quietly asks our server to renew your session, and asks it whether your
+  subscription is still active — nothing else is sent.
 </p>
 
 <h3>Google Fonts</h3>
@@ -562,7 +594,7 @@
 </p>
 
 <footer>
-  SIPLX — Privacy Policy — Last Updated 15 September 2026
+  SIPLX — Privacy Policy — Last Updated 18 September 2026
 </footer>
 
 </body>
