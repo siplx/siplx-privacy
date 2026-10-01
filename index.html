@@ -64,14 +64,16 @@
 
 <h1>SIPLX Privacy Policy</h1>
 <p class="lede">What SIPLX stores, what leaves your device, and how to remove it.</p>
-<p class="updated">Last Updated: 18 September 2026</p>
+<p class="updated">Last Updated: 2 October 2026</p>
 
 <p>
   SIPLX is a text-expansion app. Snippets you write are saved on your device and
-  work without an account. Two features send data off your device, and both are
-  optional: <strong>AI formatting</strong>, which you trigger one snippet at a
-  time, and <strong>cloud sync</strong>, which uploads your snippet library
-  continuously once you sign in and turn it on.
+  work without an account. Two features send data off your device.
+  <strong>AI formatting</strong> happens one snippet at a time, each time you ask
+  for it. <strong>Cloud sync</strong> uploads your snippet library continuously,
+  and <strong>there is no switch for it</strong>: it starts by itself once you
+  are signed in on a Pro or Team plan. Staying signed out is what keeps
+  everything on your device.
 </p>
 
 <div class="note">
@@ -108,9 +110,9 @@
     anywhere.</strong> The comparison happens on your device, in memory, against
     your own snippet list. Text that does not match a trigger is discarded as
     soon as the check finishes. We never receive it, and it is not written to
-    the app's database, to a file, or to any server — including when cloud sync
-    is on. Cloud sync uploads snippets you wrote in SIPLX, never text you typed
-    elsewhere.
+    the app's database, to a file, or to any server — including while your
+    library is being synced. Cloud sync uploads snippets you wrote in SIPLX,
+    never text you typed elsewhere.
   </p>
 </div>
 
@@ -158,49 +160,79 @@
   <li>Display name</li>
   <li>An account identifier we generate</li>
   <li>
-    How you sign in: an identifier Google or Microsoft gives us for your
-    account, if you use <strong>Continue with Google</strong> or
-    <strong>Continue with Microsoft</strong> &mdash; we never receive or store
-    that account&rsquo;s password &mdash; or, if you sign in with a
-    <strong>one-time code sent to your email</strong>, nothing beyond the
-    email address the code was sent to. New accounts never set a password
-    with us. A small number of older accounts still have a password on file
-    from before September 2026, stored only as a cryptographic hash; that
-    sign-in method has been retired, and those accounts now sign in the same
-    way as any other &mdash; with Google, Microsoft, or an emailed code.
+    How you sign in: an identifier Google gives us for your account.
+    <strong>Continue with Google</strong> is the only way to sign in to SIPLX
+    &mdash; we never receive or store your Google password. New accounts never
+    set a password with us. A small number of older accounts still have a
+    password on file from before September 2026, stored only as a cryptographic
+    hash; that sign-in method has been retired, and those accounts now sign in
+    with Google like everyone else.
   </li>
   <li>
-    If you sign in with Microsoft and your organisation has not confirmed
-    your email address with us, we do not learn or store that address at
-    all: your account is identified only by the anonymous identifier
-    Microsoft gives us for it.
+    A link to your Google profile picture, as Google supplies it with the
+    sign-in. We store the link, never a copy of the image.
   </li>
 </ul>
 
-<h3>Snippet data — uploaded only when cloud sync is on</h3>
-<p>When you sign in and enable cloud sync, the following is uploaded:</p>
+<h3>Snippet data — uploaded automatically while you are signed in</h3>
+<p>
+  There is no cloud sync setting to turn on or off. While you are signed in on a
+  <strong>Pro or Team</strong> plan, the following is uploaded on its own — when
+  you return to the app, shortly after you save something, and when another of
+  your devices changes something:
+</p>
 <ul>
   <li><strong>Snippet titles and body text</strong> — everything you have written in a snippet</li>
   <li><strong>Trigger phrases</strong> — the shortcuts you type to expand a snippet</li>
   <li><strong>Folder names and folder codes</strong></li>
+  <li>
+    <strong>Internal notes</strong> — the private note you can attach to a
+    snippet. It is text you wrote, and it is uploaded with the snippet
+  </li>
+  <li>
+    <strong>Your AI formats</strong> — the formats you create for AI formatting:
+    the name, description and category you gave each one, the instruction you
+    wrote for it, the list of fields you asked it to produce, and which snippet
+    uses which format
+  </li>
+  <li>
+    <strong>Change history</strong> — for each snippet we keep the
+    <strong>fifty most recent changes</strong>, and each one holds the title and
+    body text <em>before</em> and <em>after</em> that change, plus the name of
+    the device that made it (on a phone, its maker and model; on Windows, the
+    computer's name). This is what the app shows you as a snippet's history, and
+    it means an earlier version of a snippet stays on our server after you have
+    edited it away
+  </li>
   <li>
     <strong>Related details</strong>: snippet type, expansion mode, created and
     modified times, how many times a snippet has been used and when it was last
     used, and whether it is marked favourite, archived or deleted
   </li>
 </ul>
-
 <div class="note">
   <p>
-    <strong>Attachments are never uploaded.</strong> Images, PDFs and any other
-    files you attach to a snippet stay on the device you added them to. They are
-    not sent to our servers and do not appear on your other devices. If you
-    reinstall the app or move to a new phone, attachments are not restored —
-    use Export to keep your own copy.
+    <strong>On the free and Plus plans nothing you write is uploaded.</strong>
+    Signing in on either of those still lets SIPLX <em>download</em> a cloud
+    library you already have — your own data coming back to you — but nothing
+    this device writes leaves it.
   </p>
 </div>
 
-<h3>Device wake-up token — collected only when cloud sync is on</h3>
+<div class="note">
+  <p>
+    <strong>Attachments are never uploaded to us.</strong> Images, PDFs and any
+    other files you attach to a snippet are not sent to our servers and do not
+    appear on your other devices through cloud sync. They do sit inside the
+    app's own storage, so <strong>Android's automatic backup includes them</strong>
+    if you have device backup switched on in your Google account settings: that
+    copy is held by Google under your own account, not by us, and your snippet
+    database itself is excluded from it. To move attachments yourself, use
+    Export.
+  </p>
+</div>
+
+<h3>Device wake-up token — collected while you are signed in</h3>
 <p>
   So that a change you make on one device shows up on your others without you
   waiting for the app to check, each signed-in device is registered with us to
@@ -247,18 +279,62 @@
   SIPLX?&rdquo; prompt, or send feedback from Settings:
 </p>
 <ul>
-  <li>The message you write</li>
+  <li>The message you write, kept as you typed it</li>
   <li>
     Which platform you sent it from (Android, Windows or the website) and
     your app version
+  </li>
+  <li>
+    How many snippets you had saved when you wrote it — a number only, so the
+    message can be read in context
   </li>
 </ul>
 <p>
   We link it to your account only so we do not ask again on your other
   devices, and so we can act on it if it names a problem specific to your
-  account. Tapping &ldquo;Rate on Google Play&rdquo; from that prompt opens
+  account. So that a message reaches a person rather than sitting in a table,
+  our server also forwards it to our own support address through an email
+  delivery provider, <strong>Resend</strong>; the forwarded copy carries the
+  message, the platform, the app version and which account sent it.
+  Tapping &ldquo;Rate on Google Play&rdquo; from that prompt opens
   the Play Store in your browser or the Play app; we do not learn whether you
   went on to leave a rating there.
+</p>
+
+<h3>Device information</h3>
+<p>
+  Every request a signed-in app makes to us carries two small facts about the
+  device making it, and we keep them:
+</p>
+<ul>
+  <li>
+    <strong>A device name.</strong> On Android this is the phone's maker and
+    model as Android reports them; on Windows it is the computer's own name. It
+    is stored on the change-history rows described above, so the history can say
+    which device made a change, and it is used for nothing else.
+  </li>
+  <li>
+    <strong>Which kind of device it is</strong> — phone or Windows — stored
+    against the sign-in session. An account holds one phone session and one
+    Windows session at a time; signing in again on the same kind of device ends
+    the earlier session of that kind.
+  </li>
+</ul>
+<p>
+  We do not collect an advertising identifier, a hardware serial number, your
+  IMEI, your phone number, or a list of the other apps on your device.
+</p>
+
+<h3>Diagnostics you choose to send</h3>
+<p>
+  SIPLX on Android keeps a short record of why the suggestion overlay did or did
+  not appear: how long a word was, how many matches were found, and which part
+  of the app closed the overlay. <strong>It does not contain what you typed, and
+  it never leaves the device by itself.</strong> A button in Settings copies it
+  to your clipboard so that you can paste it to us when you report a problem;
+  what you do with it after that is yours. Part of it is written to a file in
+  the app's own storage, which means Android's automatic backup can include it
+  in the same way it includes attachments, above.
 </p>
 
 <h3>What we do not collect</h3>
@@ -279,19 +355,22 @@
   The server our apps and our website talk to runs on <strong>Render</strong>,
   in its <strong>Singapore</strong> region. Everything sent to us passes through
   it: your email address and the sign-in that proves it is you, the token that renews
-  your session afterwards, and your snippet data when cloud sync is on.
+  your session afterwards, and your snippet data while you are signed in on a Pro
+  or Team plan.
 </p>
 <p>
   Neon and Render process this data on our behalf as hosting providers. Google
-  processes device wake-up tokens on our behalf, as described in section 2. None
-  of them is given your data for their own purposes, and we do not sell it to
-  anyone.
+  processes device wake-up tokens on our behalf, as described in section 2.
+  Resend delivers the feedback forward described in section 2, and so handles
+  the message you sent. None of them is given your data for their own purposes,
+  and we do not sell it to anyone.
 </p>
 
 <h2>4. AI formatting</h2>
 <p>
   When you tap the AI formatting button on a snippet, the text of
-  <em>that snippet</em> is sent to our own server, which forwards it through
+  <em>that snippet</em> and the format you picked are sent to our own server,
+  which forwards them through
   <strong>OpenRouter</strong> — an AI gateway — to the language model that
   produces the formatted result. We choose that model on the server rather than
   in the app; today it is <strong>DeepSeek V3.2</strong>, and it may change. So
@@ -301,7 +380,13 @@
 </p>
 <div class="note">
   <p>
-    <strong>Only the snippet's text is sent.</strong> Attachments — images, PDFs
+    <strong>What is sent is the snippet's text and the format itself.</strong>
+    A format is something you wrote, so the request also carries the instruction
+    you gave that format, the list of fields you asked it to produce, and any
+    rules you have taught it. Teaching a format by showing it examples is a
+    second request, and that one carries <strong>the examples themselves</strong>
+    — the before and after text you typed — along with any correction you
+    wrote and the rules the format already holds. Attachments — images, PDFs
     and any other file you attach — are never sent to the AI.
   </p>
 </div>
@@ -347,7 +432,8 @@
 </div>
 <p>
   When you delete your account, the identifying details on it — your email
-  address, your name, your sign-in details — are removed <strong>immediately</strong>.
+  address, your name, the link to your profile picture, your sign-in details —
+  are removed <strong>immediately</strong>.
   The purchase and Ink records above go with the account when the record itself
   is removed, thirty days later. They contain no snippet text at any point.
 </p>
@@ -378,15 +464,29 @@
     their role.
   </li>
   <li>
-    <strong>Team members see your display name. They do not see your email
-    address.</strong> Email addresses are not sent to other members' devices.
+    <strong>Team members see your display name, and — on the team statistics
+    page — your email address.</strong> The member list does not carry an
+    address and never has. The statistics page does: it sends every member's
+    email address to every other member's device, and shows it in place of a
+    display name that is blank. <strong>That is a defect, not a design.</strong>
+    It is corrected in our server and in both apps, and that correction is not
+    in any published version yet. Until the updated apps are out, please treat
+    your email address as visible to the other members of any team you belong
+    to. We will update this section when it ships.
   </li>
   <li>
     Please note that your display name may be derived from other information: if
-    you registered without entering a name, it is the part of your email address
-    before the <code>@</code>; if you signed in with Google, it is the name on
-    your Google profile. You can change your display name to anything you are
+    you signed in with Google, it is the name on your Google profile; if your
+    account carries no name, it is the part of your email address before the
+    <code>@</code>. You can change your display name to anything you are
     comfortable sharing.
+  </li>
+  <li>
+    <strong>A snippet's internal note is not private inside a team.</strong> The
+    note on a team snippet is always visible to the team's owner and its admins,
+    and to an ordinary member once the owner grants that member permission to
+    see notes — which is off until the owner turns it on. Notes on snippets in
+    your personal workspace are yours alone.
   </li>
   <li>
     Content already synced to another member's device cannot be recalled. Please
@@ -398,8 +498,9 @@
 <p>
   When you expand a snippet <strong>inside a team workspace</strong>, that
   expansion is recorded and uploaded to the team: the trigger phrase you typed,
-  when you typed it, and how many characters it saved, attributed to your
-  account.
+  the title of the snippet it expanded, when you typed it, and how many
+  characters it saved, attributed to your account. <strong>Which app you were
+  typing in is not uploaded.</strong>
 </p>
 <ul>
   <li>
@@ -451,9 +552,8 @@
 <h3>Your whole account</h3>
 <p>
   Open <strong>Settings → Profile → Delete account</strong> in the app. You will
-  be asked to confirm who you are first, the same way you normally sign in —
-  with Google, with Microsoft, or with a fresh one-time code sent to your
-  email.
+  be asked to confirm who you are first, the same way you signed in — today
+  that means <strong>Continue with Google</strong>.
 </p>
 <p>You can also delete your account from the web, without installing the app:
   <a href="https://siplx.github.io/siplx-privacy/delete-account/">siplx.github.io/siplx-privacy/delete-account/</a>.
@@ -462,8 +562,10 @@
 <p><strong>When you delete your account:</strong></p>
 <table>
   <tr><th>Your personal snippets, triggers and folders in the cloud</th><td>Deleted</td></tr>
+  <tr><th>Your internal notes, your AI formats, and your snippets&rsquo; change history</th><td>Deleted with them</td></tr>
+  <tr><th>Feedback you sent us, and your device wake-up tokens</th><td>Deleted</td></tr>
   <tr><th>All active sign-in sessions</th><td>Revoked immediately</td></tr>
-  <tr><th>Your email address, display name and sign-in details</th><td>Removed from your account record</td></tr>
+  <tr><th>Your email address, display name, profile picture link and sign-in details</th><td>Removed from your account record</td></tr>
   <tr><th>Snippets on your device</th><td>Stay on your device — deleting your account does not erase your phone</td></tr>
   <tr><th>Team content you chose to leave with the team</th><td>Kept for the team, with your identity removed from it</td></tr>
 </table>
@@ -574,8 +676,13 @@
 <h2>11. Your choices</h2>
 <ul>
   <li><strong>Use SIPLX without an account.</strong> Nothing is uploaded.</li>
-  <li><strong>Sign in but leave cloud sync off.</strong> Your snippets stay on your device.</li>
-  <li><strong>Use cloud sync without AI formatting</strong>, or the reverse. They are independent.</li>
+  <li>
+    <strong>Sign in on the free or Plus plan.</strong> Nothing you write is
+    uploaded; SIPLX only fetches a cloud library you already have. There is no
+    switch that stops a Pro or Team account from uploading — signing out is
+    what stops it.
+  </li>
+  <li><strong>Use AI formatting or not</strong>, on any plan. It runs only when you tap it.</li>
   <li><strong>Export your snippets</strong> at any time from Import &amp; Export, as CSV or JSON.</li>
   <li><strong>Delete your account</strong> from the app or from the web page linked above.</li>
 </ul>
@@ -594,7 +701,7 @@
 </p>
 
 <footer>
-  SIPLX — Privacy Policy — Last Updated 18 September 2026
+  SIPLX — Privacy Policy — Last Updated 2 October 2026
 </footer>
 
 </body>
