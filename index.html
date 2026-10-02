@@ -80,7 +80,9 @@
   <p>
     <strong>If you do not sign in, nothing is uploaded by cloud sync.</strong>
     SIPLX is fully usable as a guest: your snippets, folders and triggers stay
-    on your device and are never sent to us.
+    on your device and are never sent to us. Using SIPLX as a guest creates no
+    account with us at all — there is nothing on our side to look up, export or
+    delete.
   </p>
 </div>
 
@@ -226,9 +228,13 @@
     appear on your other devices through cloud sync. They do sit inside the
     app's own storage, so <strong>Android's automatic backup includes them</strong>
     if you have device backup switched on in your Google account settings: that
-    copy is held by Google under your own account, not by us, and your snippet
-    database itself is excluded from it. To move attachments yourself, use
-    Export.
+    copy is held by Google under your own account, never by us, and your snippet
+    database itself is excluded from it. Keeping attachments out of that backup
+    as well is written but is not in a released version of SIPLX yet, and this
+    section will be updated when it is. Moving to a new phone is a separate
+    path: Android's device-to-device transfer carries your snippet database
+    across, and today it does not carry attachments. To keep your own copy of
+    them, use Export.
   </p>
 </div>
 
@@ -325,17 +331,27 @@
   IMEI, your phone number, or a list of the other apps on your device.
 </p>
 
-<h3>Diagnostics you choose to send</h3>
+<h3>Unsent editor drafts, on Windows</h3>
 <p>
-  SIPLX on Android keeps a short record of why the suggestion overlay did or did
-  not appear: how long a word was, how many matches were found, and which part
-  of the app closed the overlay. <strong>It does not contain what you typed, and
-  it never leaves the device by itself.</strong> A button in Settings copies it
-  to your clipboard so that you can paste it to us when you report a problem;
-  what you do with it after that is yours. Part of it is written to a file in
-  the app's own storage, which means Android's automatic backup can include it
-  in the same way it includes attachments, above.
+  While you are editing a snippet in SIPLX for Windows, what you have typed but
+  not yet saved is kept on that computer as an <strong>unsent draft</strong>, so
+  that closing the editor does not lose it. A draft holds the snippet's title,
+  its trigger phrases, its body text and its internal note, and it is stored
+  <strong>as plain text</strong> in the app's own local storage on that
+  computer. It is never uploaded.
 </p>
+<div class="note">
+  <p>
+    A draft is removed as soon as you save or discard that edit, and drafts
+    belonging to snippets that no longer exist are cleared automatically.
+    <strong>Signing out does not remove them</strong>, and there is no control
+    that clears them all at once. So text you organised with AI in the editor,
+    and an internal note you typed there, can still be on that computer after
+    you have signed out. A change to that is not in a released version of SIPLX
+    yet, and this section will be updated when it is. Removing the app and its
+    data removes them.
+  </p>
+</div>
 
 <h3>What we do not collect</h3>
 <ul>
@@ -434,21 +450,22 @@
 <h2>5. Purchases, Ink and AI usage</h2>
 <p>
   There are two ways to pay, and both attach to the same SIPLX account.
-  <strong>Purchases made inside the Android app</strong> — Pro and Team
-  subscriptions and Ink top-ups — are handled entirely by Google Play Billing.
-  <strong>Purchases made on siplx.com by Windows users</strong> — Pro and Team
+  <strong>Purchases made inside the Android app</strong> — subscriptions
+  and Ink top-ups — are handled entirely by Google Play Billing.
+  <strong>Purchases made on siplx.com by Windows users</strong> —
   subscriptions — are handled by Lemon Squeezy, LLC, the merchant of record for
-  those sales. <strong>In both cases we never see or receive your card number,
+  those sales. Which plans are on sale through each of them can change; the
+  pricing page always shows what you can actually buy today. <strong>In both cases we never see or receive your card number,
   bank details or billing address.</strong> Google or Lemon Squeezy tells us
-  only that a purchase happened, and our server then updates the Pro or Team
-  entitlement on the account the purchase belongs to.
+  only that a purchase happened, and our server then updates the Plus, Pro or
+  Team entitlement on the account the purchase belongs to.
 </p>
 <p>To make a subscription or an Ink top-up work, our server stores:</p>
 <table>
   <tr><th>The purchase token Google issues</th><td>So we can ask Google whether the purchase is genuine and still valid, and so a refund can be applied</td></tr>
   <tr><th>The subscription and customer identifiers Lemon Squeezy issues</th><td>For a website purchase: so we can ask Lemon Squeezy whether the subscription is still active, and so you can open its customer portal from the app or the site</td></tr>
-  <tr><th>Which SIPLX account a website purchase belongs to</th><td>Your account identifier is passed to Lemon Squeezy at checkout and comes back with its notifications, so the subscription lands on the account you were signed in to</td></tr>
-  <tr><th>Which product and plan you bought</th><td>Pro or Team, monthly or yearly, and the number of seats for a team</td></tr>
+  <tr><th>Which SIPLX account a website purchase belongs to</th><td>Your account identifier <em>and your email address</em> are passed to Lemon Squeezy when you start a checkout on siplx.com. The identifier is what comes back with its notifications, so the subscription lands on the account you were signed in to; the address is there so its receipt reaches you without you retyping it. Only the website does this &mdash; a purchase made inside the Android app goes through Google Play and never reaches Lemon Squeezy</td></tr>
+  <tr><th>Which product and plan you bought</th><td>Plus, Pro or Team, monthly or yearly, and the number of seats for a team</td></tr>
   <tr><th>When it expires</th><td>To know whether your subscription is active</td></tr>
   <tr><th>Your Ink balance</th><td>Ink is the credit that pays for AI use</td></tr>
   <tr><th>A line per Ink movement</th><td>The amount added or spent, the balance afterwards, the reason, and — for AI use — how many tokens the request and the reply came to, and which model answered</td></tr>
@@ -495,15 +512,21 @@
     their role.
   </li>
   <li>
-    <strong>Team members see your display name, and — on the team statistics
-    page — your email address.</strong> The member list does not carry an
-    address and never has. The statistics page does: it sends every member's
-    email address to every other member's device, and shows it in place of a
-    display name that is blank. <strong>That is a defect, not a design.</strong>
-    It is corrected in our server and in both apps, and that correction is not
-    in any published version yet. Until the updated apps are out, please treat
-    your email address as visible to the other members of any team you belong
-    to. We will update this section when it ships.
+    <strong>Team members see your display name. They do not see your email
+    address.</strong> No team screen carries one, whatever the role of the
+    person looking: not the member list, not the team statistics page, not the
+    per-member breakdown an owner or an admin can open. Your own address is
+    returned to you and to nobody else — on your own profile.
+  </li>
+  <li>
+    <strong>Until 2 October 2026 the team statistics page did send it.</strong>
+    It carried every member's email address to every other member's device, and
+    showed it in place of a display name that was blank, for any member of any
+    team — there was no role gate on it. <strong>That was a defect, not a
+    design.</strong> It was corrected on our server, which is what decides:
+    from that date no app of any version is sent an address this way, and no
+    update was needed for that to be true. A device that received an address
+    before then may still hold its own copy on that device.
   </li>
   <li>
     Please note that your display name may be derived from other information: if
@@ -511,6 +534,14 @@
     account carries no name, it is the part of your email address before the
     <code>@</code>. You can change your display name to anything you are
     comfortable sharing.
+  </li>
+  <li>
+    <strong>The change history of a team snippet is open to the whole
+    team.</strong> Any member, in any role, can open a team snippet's history
+    and read its fifty most recent versions — the title and body text before
+    and after each change — together with the name of the device that made
+    it. A snippet's internal note is deliberately never written into that
+    history, so turning a page of history does not reveal a note.
   </li>
   <li>
     <strong>A snippet's internal note is not private inside a team.</strong> The
@@ -576,8 +607,22 @@
 
 <h3>Individual snippets</h3>
 <p>
-  Delete a snippet in the app and it is removed from your device and, if cloud
-  sync is on, from your cloud library on the next sync.
+  Deleting a snippet puts it in a recycle bin rather than destroying it. For
+  <strong>thirty days</strong> you can restore it, and for those thirty days
+  its text still exists — on your device, and in your cloud library if it had
+  reached your cloud library. When the thirty days are up, SIPLX for Android
+  clears the title and the text and sends the emptied row to us, so the cloud
+  copy is emptied too; what is left is an empty record that the snippet was
+  deleted, which is what tells your other devices to delete it as well. That
+  record is removed from the device after ninety days.
+</p>
+<p>
+  <strong>Delete forever</strong>, in the recycle bin, does all of that
+  immediately instead of waiting: the text goes from the device and from the
+  cloud in the same step. <strong>Use it if you want a snippet's text gone
+  now.</strong> SIPLX for Windows has no thirty-day sweep of its own, so on an
+  account you only ever use from Windows a deleted snippet's text stays in your
+  cloud library until you delete it forever.
 </p>
 
 <h3>Your whole account</h3>
@@ -617,7 +662,7 @@
 <h2>8. How long we keep things</h2>
 <ul>
   <li>Cloud sync data is kept while your account exists, so it can be delivered to your devices.</li>
-  <li>Deleting a snippet or your account removes that content as described above.</li>
+  <li>Deleting a snippet moves it to the recycle bin; its text is cleared after 30 days, or at once if you delete it forever. Deleting your account removes the content as described above.</li>
   <li>Sign-in sessions expire on their own and are revoked when you sign out or delete your account.</li>
   <li>A de-identified record of a deleted account is kept for 30 days so the account cannot be
       re-registered in the meantime, then removed.</li>
