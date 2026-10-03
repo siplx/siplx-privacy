@@ -64,7 +64,7 @@
 
 <h1>SIPLX Privacy Policy</h1>
 <p class="lede">What SIPLX stores, what leaves your device, and how to remove it.</p>
-<p class="updated">Last Updated: 2 October 2026</p>
+<p class="updated">Last Updated: 3 October 2026</p>
 
 <p>
   SIPLX is a text-expansion app. Snippets you write are saved on your device and
@@ -375,6 +375,29 @@
   or Team plan.
 </p>
 <p>
+  Our server also writes a <strong>diagnostic log</strong> &mdash; the ordinary
+  record of what it did, kept so that failures can be traced. It is held by
+  <strong>Render</strong>, separately from the database, and it is
+  <strong>not reached by anything you delete</strong>: deleting a snippet, or
+  your whole account, changes the database and does not go back into the log.
+  Render keeps log lines for <strong>7 days</strong> &mdash; the retention
+  period for the plan our workspace is on &mdash; after which they are no longer
+  available to us. We cannot shorten that period, and neither we nor you can
+  erase one line before it expires. The log is not forwarded anywhere else: no
+  third-party logging or analytics provider receives it.
+</p>
+<div class="note">
+  <p>
+    <strong>Your email address has been written to that log.</strong> Several
+    sign-in and account paths record the address of the account they are acting
+    on, so that a line can be matched to an account. We are changing that, and
+    until the change is live on our server it is still happening. Either way, a
+    line expires with every other line, within 7 days of being written &mdash;
+    including lines about an account that has since been deleted. Deleting your
+    account does not remove them; the 7 days does.
+  </p>
+</div>
+<p>
   Neon and Render process this data on our behalf as hosting providers. Google
   processes device wake-up tokens on our behalf, as described in section 2.
   Resend delivers the feedback forward described in section 2, and so handles
@@ -644,6 +667,7 @@
   <tr><th>Your email address, display name, profile picture link and sign-in details</th><td>Removed from your account record</td></tr>
   <tr><th>Snippets on your device, and anything the Windows app keeps only on that computer (see <strong>AI formatting</strong> above)</th><td>Stay where they are — deleting your account does not erase your phone or your PC</td></tr>
   <tr><th>Team content you chose to leave with the team</th><td>Kept for the team, with your identity removed from it</td></tr>
+  <tr><th>Lines already written about you in our server&rsquo;s diagnostic log</th><td>Not removed &mdash; they expire on their own within 7 days (see <strong>Where your data is stored</strong>)</td></tr>
 </table>
 
 <p>
@@ -658,6 +682,12 @@
   meantime. After 30 days that record is removed as well, along with the
   purchase and Ink records described above.
 </p>
+<p>
+  All of that is the database. Our server&rsquo;s diagnostic log is a separate
+  store, and deleting your account does not rewrite it: lines written before the
+  deletion, including any that carry your email address, stop being available
+  after 7 days and cannot be removed sooner.
+</p>
 
 <h2>8. How long we keep things</h2>
 <ul>
@@ -666,6 +696,8 @@
   <li>Sign-in sessions expire on their own and are revoked when you sign out or delete your account.</li>
   <li>A de-identified record of a deleted account is kept for 30 days so the account cannot be
       re-registered in the meantime, then removed.</li>
+  <li>Our server&rsquo;s diagnostic log is kept by Render for 7 days, then is no longer available to us.
+      Deleting a snippet or an account does not reach it; it expires on its own.</li>
 </ul>
 
 <h2>9. The SIPLX website (siplx.com)</h2>
@@ -777,7 +809,7 @@
 </p>
 
 <footer>
-  SIPLX — Privacy Policy — Last Updated 2 October 2026
+  SIPLX — Privacy Policy — Last Updated 3 October 2026
 </footer>
 
 </body>
