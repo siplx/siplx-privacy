@@ -301,7 +301,9 @@
   account. So that a message reaches a person rather than sitting in a table,
   our server also forwards it to our own support address through an email
   delivery provider, <strong>Resend</strong>; the forwarded copy carries the
-  message, the platform, the app version and which account sent it.
+  message, the platform, the app version, the time it reached us, how many
+  snippets you had saved, and which account sent it &mdash; identified there by
+  its account id and by <strong>the email address on your account</strong>.
   Tapping &ldquo;Rate on Google Play&rdquo; from that prompt opens
   the Play Store in your browser or the Play app; we do not learn whether you
   went on to leave a rating there.
@@ -402,7 +404,8 @@
   Neon and Render process this data on our behalf as hosting providers. Google
   processes device wake-up tokens on our behalf, as described in section 2.
   Resend delivers the feedback forward described in section 2, and so handles
-  the message you sent. None of them is given your data for their own purposes,
+  everything that copy carries &mdash; the message you sent, the email address on
+  your account, and the rest. None of them is given your data for their own purposes,
   and we do not sell it to anyone.
 </p>
 
@@ -622,7 +625,9 @@
     membership ended are discarded rather than kept. Two things remove the
     rest:
     <strong>deleting your account</strong> removes every event attributed to you,
-    in every team; and <strong>the owner dissolving the team</strong> removes
+    in every team &mdash; not at once, but with your account record itself,
+    <strong>thirty days later</strong>, as described in section 7; and
+    <strong>the owner dissolving the team</strong> removes
     that team&rsquo;s entire history, for all its members.
   </li>
 </ul>
