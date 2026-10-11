@@ -12,3 +12,4 @@ One line per release. This file exists so that every release tag points at a new
 - 1.5.32 — 2026-10-09 — snippets and the search palette work in the WhatsApp app for Windows again (password fields there stay protected), and letters typed right after Enter are no longer lost.
 - 1.5.33 — 2026-10-09 — a new icon: the app, the installer, the taskbar and the tray now show the sx | siplx wordmark. Nothing else changed.
 - 1.5.34 — 2026-10-10 — snippets and the search palette now really work in the WhatsApp app from the Microsoft Store, which the 1.5.32 fix had missed (password fields there stay protected).
+- 1.5.35 — 2026-10-12 — the letters on the app icon are bigger (they now fill most of the tile), so the icon is easier to read on the taskbar and the desktop. Nothing else changed.
