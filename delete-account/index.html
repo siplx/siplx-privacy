@@ -75,7 +75,8 @@
 
   <h1>Delete your SIPLX account</h1>
   <p class="sub">You can do it here, on this page, without installing anything.
-  It removes your account and its contents straight away, and it cannot be undone.</p>
+  It closes your account and deletes your snippets straight away, and it cannot be
+  undone. What stays, and for how long, is listed below.</p>
 
   <!-- ─── The web route ─────────────────────────────────────────────────── -->
 
@@ -115,16 +116,20 @@
 
   <h2>Or delete it in the app</h2>
   <div class="path">
-    Open SIPLX → <strong>Settings</strong> → <strong>Account</strong> → <strong>Delete account</strong>
+    Android: open SIPLX → <strong>Me</strong> → your account at the top → <strong>Delete account</strong><br>
+    Older Android versions, with a <strong>Settings</strong> tab instead of <strong>Me</strong>: <strong>Settings</strong> → <strong>Profile</strong> → <strong>Delete account</strong><br>
+    Windows: open SIPLX → <strong>Account</strong> in the sidebar → <strong>Delete account</strong>
   </div>
-  <p>The same thing, by the same route: it asks you to sign in once more, shows
-  you what will happen, and then does it.</p>
+  <p>If your account signs in with Google, the app asks you to sign in with Google
+  once more before it deletes anything. SIPLX for Windows also shows you first what
+  will happen and asks what to do with the snippets you added to teams; the Android
+  app leaves those with the teams.</p>
 
   <h2>If the button above will not work for you</h2>
   <p>The page signs you in with Google because that is how SIPLX accounts sign
   in. If yours does not — an older account from before September 2026, a
   Microsoft work account, or a Google sign-in your browser or network blocks —
-  write to <a href="mailto:privacy@siplx.app">privacy@siplx.app</a> from the
+  write to <a href="mailto:siplx.app@gmail.com">siplx.app@gmail.com</a> from the
   address on the account. We delete it by hand, with the same outcome as below,
   and confirm when it is done.</p>
 
@@ -137,11 +142,11 @@
       <ul>
         <li>Your email address, display name and profile picture</li>
         <li>Your sign-in details: the link to your Google account, and a password if your account ever had one</li>
-        <li>Your snippets and their text, including their version history</li>
-        <li>Your trigger phrases and folders</li>
-        <li>Everything synced between your devices</li>
+        <li>Your personal snippets and their text, including their version history</li>
+        <li>Your personal trigger phrases and folders</li>
         <li>Your membership of every team</li>
         <li>All active sign-ins, on every device</li>
+        <li>An address you left for update emails while signed in</li>
       </ul>
     </div>
     <div class="card kept">
@@ -152,27 +157,37 @@
             default; the tick box above deletes them instead.</li>
         <li><strong>Teams you own</strong>, which pass to another member —
             see below.</li>
+        <li><strong>Your entries in a team&rsquo;s change history.</strong> They
+            stay with the team with your name removed, and still hold the text
+            before and after each change and the name of the device that made it.
+            This is true even if you tick the box above.</li>
         <li><strong>One anonymised record, for 30 days.</strong> Your row in
             our database survives with everything identifying stripped out —
-            no email, no name, no sign-in details — and is removed after 30 days.</li>
+            no email, no name, no sign-in details — and is removed after 30 days,
+            together with what is still attached to it: your AI Formats, feedback
+            you sent, your device wake-up tokens, your team usage records, and your
+            subscription and Ink records.</li>
+        <li><strong>Google Play order records and payment dispute records</strong>,
+            without a link to your account, so a refund or chargeback can still be
+            settled.</li>
       </ul>
     </div>
   </div>
 
   <div class="note">
-    <p><strong>Why one record stays for 30 days.</strong> Content that other people
-    still use — snippets you left with a team — has to belong to something in the
-    database, and it is attached to that empty record rather than to you. And because
-    the address is not released immediately, nobody else can take it the moment you
-    leave. The record holds no personal information, cannot be signed in to, and is
-    removed 30 days after you delete the account.</p>
+    <p><strong>About the record that stays for 30 days.</strong> It holds no email,
+    no name and no sign-in details, and nobody can sign in to it. Signing in again
+    with the same Google account creates a new, empty account; it does not bring the
+    old one back. Snippets you left with a team are not attached to it: they belong to
+    an anonymous placeholder account that holds no personal information. The record
+    is removed 30 days after you delete the account.</p>
   </div>
 
   <h2>If you own a team</h2>
   <p>Ownership moves to someone else so the team keeps working:</p>
   <ol>
     <li>Whoever joined earliest.</li>
-    <li>If you are the only member left, the team is dissolved and its snippets are deleted with it.</li>
+    <li>If you are the only member left, the team is dissolved: its snippets are marked deleted on our server, with their text kept there.</li>
   </ol>
   <p>Step 2 above names the person each of your teams will go to, before anything happens.</p>
 
@@ -185,7 +200,7 @@
 
   <section lang="zh-Hans">
     <h1>删除你的 SIPLX 账号</h1>
-    <p class="sub">在这一页就能删，不用安装任何东西。账号和里面的内容会立刻删除，无法撤销。</p>
+    <p class="sub">在这一页就能删，不用安装任何东西。账号会立刻关闭、片段立刻删除，无法撤销；哪些会保留、保留多久，见下文。</p>
 
     <h2>在这一页删</h2>
     <p><strong>第一步</strong>：点上面的「Continue with Google」，用你平时登录 SIPLX 的那个 Google 账号登录，证明是你本人。</p>
@@ -193,22 +208,25 @@
 
     <h2>也可以在应用里删</h2>
     <div class="path">
-      打开 SIPLX → <strong>设置</strong> → <strong>账号</strong> → <strong>删除账号</strong>
+      Android：打开 SIPLX → <strong>我的</strong> → 顶部你的账号 → <strong>删除账号</strong><br>
+      还有「设置」标签、没有「我的」的旧版 Android：<strong>设置</strong> → <strong>个人资料</strong> → <strong>删除账号</strong><br>
+      Windows：打开 SIPLX → 侧栏的 <strong>账号</strong> → <strong>删除账号</strong>
     </div>
+    <p>如果你的账号是用 Google 登录的，应用会先请你再用 Google 登录一次，然后才删除。Windows 版还会先列出会发生什么，并问你加到团队里的片段要怎么处理；Android 版不问，这些片段会留在团队里。</p>
 
     <h2>如果上面的按钮对你不管用</h2>
-    <p>这一页用 Google 登录，因为 SIPLX 账号就是这么登录的。如果你的账号不是——2026 年 9 月之前的老账号、Microsoft 工作账号，或者你的浏览器、网络挡掉了 Google 登录——请用账号上的那个邮箱地址写信到 <a href="mailto:privacy@siplx.app">privacy@siplx.app</a>。我们手工删除，结果和下面写的一样，删完会回复你。</p>
+    <p>这一页用 Google 登录，因为 SIPLX 账号就是这么登录的。如果你的账号不是——2026 年 9 月之前的老账号、Microsoft 工作账号，或者你的浏览器、网络挡掉了 Google 登录——请用账号上的那个邮箱地址写信到 <a href="mailto:siplx.app@gmail.com">siplx.app@gmail.com</a>。我们手工删除，结果和下面写的一样，删完会回复你。</p>
 
     <h2>会发生什么</h2>
-    <p><strong>立即删除：</strong>你的邮箱、显示名称、头像；登录信息（与 Google 账号的关联，以及账号曾经设过的密码）；你的片段及其文字和历史版本；触发词和文件夹；各设备之间同步的全部内容；你在所有团队里的成员身份；所有设备上的登录状态。</p>
-    <p><strong>会保留：</strong>你选择留给团队的片段——它们留在团队里，成员可以继续使用（默认保留，上面的勾选框可以改成一并删除）；你拥有的团队会交给其他成员：给最早加入的成员，如果只剩你一个人，团队解散、片段随之删除；另外会留下一条匿名记录，保留 30 天后删除——里面没有邮箱、名字和任何登录信息，无法登录，只是为了让留给团队的内容有归属、并且你的邮箱不会马上被别人占用。</p>
+    <p><strong>立即删除：</strong>你的邮箱、显示名称、头像；登录信息（与 Google 账号的关联，以及账号曾经设过的密码）；你的个人片段及其文字和历史版本；个人触发词和文件夹；你在所有团队里的成员身份；所有设备上的登录状态；登录状态下留下的更新邮件地址。</p>
+    <p><strong>会保留：</strong>你选择留给团队的片段——它们留在团队里，成员可以继续使用（默认保留，上面的勾选框可以改成一并删除）；你在团队修改历史里留下的记录——去掉你的名字后留在团队里，仍包含每次修改前后的文字和设备名称，勾了上面的框也一样；你拥有的团队会交给最早加入的成员，如果只剩你一个人，团队解散，片段在服务器上标为已删除、文字仍保留；Google Play 订单记录和付款争议记录——不再关联你的账号，以便退款或拒付还能处理；另外会留下一条匿名记录，里面没有邮箱、名字和任何登录信息，无法登录，30 天后连同仍挂在它上面的内容一起删除：你的 AI 排版格式、你发来的反馈、设备唤醒令牌、团队使用记录、订阅和 Ink 记录。用同一个 Google 账号重新登录会得到一个新的空账号，旧账号不会回来。</p>
 
     <h2>从没创建过账号？</h2>
     <p>如果你一直没登录就在用 SIPLX，那这里没有什么可删的——片段只存在你的设备上，从未传到我们这里。卸载应用即清除。</p>
   </section>
 
   <footer>
-    <p>Questions / 有问题：<a href="mailto:privacy@siplx.app">privacy@siplx.app</a> ·
+    <p>Questions / 有问题：<a href="mailto:siplx.app@gmail.com">siplx.app@gmail.com</a> ·
        <a href="../">Privacy policy / 隐私政策</a></p>
   </footer>
 
@@ -317,10 +335,10 @@
       return "This account has already been deleted.";
     }
     if (code === "REAUTH_UNAVAILABLE" || code === "PROVIDER_NOT_CONFIGURED" || status === 503) {
-      return "The server cannot verify a Google sign-in at the moment, so nothing was deleted. Please email privacy@siplx.app and we will delete the account by hand.";
+      return "The server cannot verify a Google sign-in at the moment, so nothing was deleted. Please email siplx.app@gmail.com and we will delete the account by hand.";
     }
     if (code === "INVALID_GOOGLE_TOKEN" || code === "REAUTH_REQUIRED" || status === 401) {
-      return "That Google sign-in could not be verified against this account. Nothing has been deleted. Sign in again with the account SIPLX belongs to, or email privacy@siplx.app.";
+      return "That Google sign-in could not be verified against this account. Nothing has been deleted. Sign in again with the account SIPLX belongs to, or email siplx.app@gmail.com.";
     }
     if (status === 429) {
       return "Too many attempts. Wait a minute and try again.";
@@ -328,7 +346,7 @@
     if (status === 0) {
       return "Could not reach the server. Nothing has been deleted. Check your connection and try again.";
     }
-    return "Something went wrong (" + status + "). Nothing has been deleted. Please try again, or email privacy@siplx.app.";
+    return "Something went wrong (" + status + "). Nothing has been deleted. Please try again, or email siplx.app@gmail.com.";
   }
 
   // ── Step 1: Google ────────────────────────────────────────────────────────
@@ -349,7 +367,7 @@
   }
 
   function googleUnavailable() {
-    say("Google’s sign-in could not be loaded in this browser, so the button cannot appear. Nothing has been deleted. Email privacy@siplx.app from the address on the account and we will delete it by hand.", "err");
+    say("Google’s sign-in could not be loaded in this browser, so the button cannot appear. Nothing has been deleted. Email siplx.app@gmail.com from the address on the account and we will delete it by hand.", "err");
     loadGoogleBtn.disabled = false;
     loadGoogleBtn.textContent = "Try again";
   }
@@ -449,7 +467,7 @@
         var t = p.teams[i];
         html += "<tr><td>" + escapeHtml(t.teamName) + "</td><td>" +
           (t.dissolved
-            ? "dissolved — you are the only member, and its snippets are deleted"
+            ? "dissolved — you are the only member; its snippets are marked deleted"
             : "transferred to " + escapeHtml(t.successorEmail)) +
           "</td></tr>";
       }
