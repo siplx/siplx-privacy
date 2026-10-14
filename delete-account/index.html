@@ -167,9 +167,10 @@
             together with what is still attached to it: your AI Formats, feedback
             you sent, your device wake-up tokens, your team usage records, and your
             subscription and Ink records.</li>
-        <li><strong>Google Play order records and payment dispute records</strong>,
-            without a link to your account, so a refund or chargeback can still be
-            settled.</li>
+        <li><strong>Google Play order records, payment dispute records and the
+            record of Lemon Squeezy&rsquo;s notifications</strong>, so a refund or
+            chargeback can still be settled. Their link to your account goes after
+            30 days.</li>
       </ul>
     </div>
   </div>
@@ -189,7 +190,7 @@
     <li>Whoever joined earliest.</li>
     <li>If you are the only member left, the team is dissolved: its snippets are marked deleted on our server, with their text kept there.</li>
   </ol>
-  <p>Step 2 above names the person each of your teams will go to, before anything happens.</p>
+  <p>Step 2 above shows what will happen to each of your teams, before anything happens.</p>
 
   <h2>Never created an account?</h2>
   <p>If you have only ever used SIPLX without signing in, there is nothing here
@@ -204,7 +205,7 @@
 
     <h2>在这一页删</h2>
     <p><strong>第一步</strong>：点上面的「Continue with Google」，用你平时登录 SIPLX 的那个 Google 账号登录，证明是你本人。</p>
-    <p><strong>第二步</strong>：页面会先列出会发生什么——多少片段会被删、你拥有的团队会交给谁——这时还可以取消。确认之后才真正删除。</p>
+    <p><strong>第二步</strong>：页面会先列出会发生什么——多少片段会被删、你拥有的团队会怎么处理——这时还可以取消。确认之后才真正删除。</p>
 
     <h2>也可以在应用里删</h2>
     <div class="path">
@@ -219,7 +220,7 @@
 
     <h2>会发生什么</h2>
     <p><strong>立即删除：</strong>你的邮箱、显示名称、头像；登录信息（与 Google 账号的关联，以及账号曾经设过的密码）；你的个人片段及其文字和历史版本；个人触发词和文件夹；你在所有团队里的成员身份；所有设备上的登录状态；登录状态下留下的更新邮件地址。</p>
-    <p><strong>会保留：</strong>你选择留给团队的片段——它们留在团队里，成员可以继续使用（默认保留，上面的勾选框可以改成一并删除）；你在团队修改历史里留下的记录——去掉你的名字后留在团队里，仍包含每次修改前后的文字和设备名称，勾了上面的框也一样；你拥有的团队会交给最早加入的成员，如果只剩你一个人，团队解散，片段在服务器上标为已删除、文字仍保留；Google Play 订单记录和付款争议记录——不再关联你的账号，以便退款或拒付还能处理；另外会留下一条匿名记录，里面没有邮箱、名字和任何登录信息，无法登录，30 天后连同仍挂在它上面的内容一起删除：你的 AI 排版格式、你发来的反馈、设备唤醒令牌、团队使用记录、订阅和 Ink 记录。用同一个 Google 账号重新登录会得到一个新的空账号，旧账号不会回来。</p>
+    <p><strong>会保留：</strong>你选择留给团队的片段——它们留在团队里，成员可以继续使用（默认保留，上面的勾选框可以改成一并删除）；你在团队修改历史里留下的记录——去掉你的名字后留在团队里，仍包含每次修改前后的文字和设备名称，勾了上面的框也一样；你拥有的团队会交给最早加入的成员，如果只剩你一个人，团队解散，片段在服务器上标为已删除、文字仍保留；Google Play 订单记录、付款争议记录和 Lemon Squeezy 通知记录——30 天后不再关联你的账号，以便退款或拒付还能处理；另外会留下一条匿名记录，里面没有邮箱、名字和任何登录信息，无法登录，30 天后连同仍挂在它上面的内容一起删除：你的 AI 排版格式、你发来的反馈、设备唤醒令牌、团队使用记录、订阅和 Ink 记录。用同一个 Google 账号重新登录会得到一个新的空账号，旧账号不会回来。</p>
 
     <h2>从没创建过账号？</h2>
     <p>如果你一直没登录就在用 SIPLX，那这里没有什么可删的——片段只存在你的设备上，从未传到我们这里。卸载应用即清除。</p>
@@ -447,6 +448,25 @@
 
   // ── Step 2: preview and confirm ───────────────────────────────────────────
 
+  // Who a team you own passes to — by NAME, never by address (W7).
+  //
+  // ⚠️ `successorEmail` IS NOT READ HERE, ON PURPOSE, IN ANY SHAPE. This page
+  // used to print "transferred to " + successorEmail verbatim, which put a
+  // teammate's address on screen (and, with the field null, missing or "",
+  // printed "transferred to " and nothing after it). The server keeps sending
+  // that key for Windows 1.5.30–1.5.37, whose parser requires it; it is not
+  // this page's to display.
+  //
+  // `successorName` is the member's team nickname, else their account's
+  // display name, else "" — the server never falls back to any part of an
+  // address. Absent (a server from before the field), null, "" or blank all
+  // read "another member", which is true in every one of those cases and
+  // names nobody. A dissolved team never reaches this function.
+  function successorLabel(t) {
+    var name = t && typeof t.successorName === "string" ? t.successorName.trim() : "";
+    return name ? name : "another member";
+  }
+
   function renderPreview() {
     var p = lastPreview || {};
     var alsoDelete = teamBox.checked;
@@ -468,7 +488,7 @@
         html += "<tr><td>" + escapeHtml(t.teamName) + "</td><td>" +
           (t.dissolved
             ? "dissolved — you are the only member; its snippets are marked deleted"
-            : "transferred to " + escapeHtml(t.successorEmail)) +
+            : "transferred to " + escapeHtml(successorLabel(t))) +
           "</td></tr>";
       }
       html += "</table>";
