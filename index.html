@@ -132,12 +132,16 @@
 <div class="note">
   <p>
     <strong>Nothing you type in other apps is stored, logged, or sent
-    anywhere.</strong> The comparison happens on your device, in memory, against
-    your own snippet list. Text that does not match a trigger is discarded as
-    soon as the check finishes. We never receive it, and it is not written to
-    the app's database, to a file, or to any server — including while your
-    library is being synced. Cloud sync uploads snippets you wrote in SIPLX,
-    never text you typed elsewhere.
+    anywhere, except the fact that you used one of your own triggers.</strong>
+    The comparison happens on your device, in memory, against your own snippet
+    list. Text that does not match a trigger is discarded as soon as the check
+    finishes. We never receive it, and it is not written to the app's database,
+    to a file, or to any server — including while your library is being synced.
+    When what you typed is one of your triggers, the app records that expansion
+    &mdash; which trigger, which snippet, when &mdash; for your statistics
+    (section 2), and for a team snippet that record is uploaded to the team
+    (section 6). Cloud sync uploads snippets you wrote in SIPLX, never text you
+    typed elsewhere.
   </p>
 </div>
 
@@ -300,7 +304,7 @@
 <div class="note">
   <p>
     <strong>On the free and Plus plans nothing you write in your personal
-    workspace is uploaded.</strong> Signing in on either of those still lets
+    workspace is uploaded by cloud sync.</strong> Signing in on either of those still lets
     SIPLX <em>download</em> a cloud library you already have — your own data
     coming back to you — but nothing this device writes there leaves it.
     <strong>A team is the exception, on every plan.</strong> If you are a
@@ -538,8 +542,10 @@
     <strong>Your own statistics.</strong> Both apps record each expansion on the
     device so they can show you your statistics &mdash; which trigger, which
     snippet, when, how many characters it saved, and which app or program it
-    happened in. Expansions in your personal workspace are never uploaded, and
-    for a team expansion the app or program is not uploaded either (section 6).
+    happened in. Expansions in your personal workspace are not uploaded one by
+    one &mdash; on Pro and Team, a personal snippet&rsquo;s use count and when it
+    was last used travel with it when it syncs (section 2) &mdash; and for a team
+    expansion the app or program is not uploaded either (section 6).
   </li>
   <li>
     <strong>Where SIPLX expands, and your tutorial progress.</strong> If you
@@ -562,7 +568,7 @@
   <li>We do not collect your location.</li>
   <li>We do not collect your contacts, photo library, or files outside what you attach in the app.</li>
   <li>We do not use advertising identifiers, and we do not sell data or use it for advertising.</li>
-  <li>We do not record what you type in other apps. Expansion happens on your device.</li>
+  <li>We do not record what you type in other apps, beyond which of your own team triggers you used in a team workspace (section 6). Expansion happens on your device.</li>
 </ul>
 
 <h2>3. Where your data is stored, and who else handles it</h2>
@@ -903,10 +909,13 @@
     this for anyone but themselves.
   </li>
   <li>
-    <strong>Expansions in your personal workspace are never uploaded.</strong>
-    They stay on your device and no one else can see them — not the team owner,
-    not us. Personal and team statistics are separate, and only the team half
-    leaves the device.
+    <strong>Expansions in your personal workspace are not uploaded one by
+    one.</strong> Each one stays on your device and no one else can see it &mdash;
+    not the team owner, not us. On Pro and Team, a personal snippet&rsquo;s use
+    count and when it was last used travel with the snippet when it syncs
+    (section 2), so our server holds those two values; no member of a team can
+    see them. Personal and team statistics are separate, and only the team half
+    is uploaded expansion by expansion.
   </li>
   <li>
     We do not record the <em>content</em> that was inserted, only which trigger
@@ -946,6 +955,13 @@
   copy is emptied too; what is left is an empty record that the snippet was
   deleted, which is what tells your other devices to delete it as well. That
   record is removed from the device after ninety days.
+</p>
+<p>
+  <strong>One exception, in current versions of both apps:</strong> a snippet
+  with no body text &mdash; one that holds only a title or an attachment
+  &mdash; is treated as already deleted forever as soon as you delete it. It
+  does not appear in the recycle bin and cannot be restored, and if it had
+  reached our server, its internal note is cleared there.
 </p>
 <p>
   <strong>Delete forever</strong>, in the recycle bin, does not wait: the
@@ -1178,13 +1194,13 @@
     uploaded, unless you choose to leave an email address for update emails.</li>
   <li>
     <strong>Sign in on the free or Plus plan.</strong> Nothing you write in your
-    personal workspace is uploaded; SIPLX only fetches a cloud library you
+    personal workspace is uploaded by cloud sync; SIPLX only fetches a cloud library you
     already have. A team you belong to is the exception: what you add to or
     change in it is shared with that team on any plan (section 6). There is no
     switch that stops a Pro or Team account from uploading — signing out is
     what stops it.
   </li>
-  <li><strong>Use AI Format or not</strong>, on any plan. A run starts only when you tap it; if you never
+  <li><strong>Use AI Format or not</strong>, on any plan. A run starts only when you ask for one; if you never
     use AI Format or teach a format, nothing is sent to an AI service.</li>
   <li><strong>Get update emails or not.</strong> None are sent unless you leave your address, and every one carries a link to stop them.</li>
   <li><strong>Export your snippets</strong> at any time, as CSV or JSON: from Import &amp; Export on Android,
